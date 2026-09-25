@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,11 +21,6 @@
     --white:#FFFDF9;
   }
   /* ============================================================
-     ASSET MAP — replace these placeholders once you have real files.
-     Create the folders below next to this HTML file, then swap each
-     .img-ph / .icon-ph element's inline comment for a real <img>,
-     or just set the placeholder's background-image to the file path.
-
      assets/
        images/
          hero-construction.jpg        (hero background, ~1920x1080)
@@ -39,7 +34,7 @@
          manpower-team.jpg             (manpower section, ~1000x1200)
          ceo-saiful-islam.jpg          (leadership headshot, square)
        icons/
-         icon-general-building.svg
+         icon-general-building.png
          icon-mechanical-electrical.svg
          icon-heavy-equipment.svg
          icon-instrumentation.svg
@@ -113,6 +108,7 @@
   }
   .brand{display:flex; align-items:center; gap:12px;}
   .brand-mark{width:40px; height:40px; flex-shrink:0;}
+  .brand img.brand-mark{display:block; object-fit:contain;}
   .brand-text{display:flex; flex-direction:column; line-height:1.05;}
   .brand-text .en{font-family:'Cairo',sans-serif; font-weight:800; font-size:1.02rem; color:var(--ink);}
   .brand-text .ar{font-family:'Cairo',sans-serif; font-weight:700; font-size:0.68rem; color:var(--crimson); direction:rtl;}
@@ -156,6 +152,17 @@
     background-size:cover;
     background-position:center;
   }
+  .hero-slide{
+    position:absolute; inset:0; z-index:2; opacity:0; transition:opacity 1.1s ease; pointer-events:none;
+    background-size:cover; background-position:center;
+  }
+  .slide-dots{
+    position:absolute; bottom:24px; left:0; right:0; z-index:7; display:flex; justify-content:center; gap:10px;
+  }
+  .slide-dots button{
+    width:10px; height:10px; padding:0; border:1.5px solid rgba(255,253,249,.55); background:transparent; border-radius:50%; cursor:pointer; transition:background .2s, transform .2s;
+  }
+  .slide-dots button.active{ background:var(--gold-light); border-color:var(--gold-light); transform:scale(1.18); }
   .hero-diagonal{
     position:absolute; top:0; right:0; width:46%; height:100%; z-index:1;
     background:linear-gradient(160deg, var(--crimson) 0%, var(--crimson-dark) 55%, var(--gold) 100%);
@@ -265,7 +272,11 @@
 
   /* ---------- clients marquee ---------- */
   .clients-wrap{overflow:hidden; border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:28px 0;}
-  .clients-track{display:flex; gap:56px; width:max-content; animation:scroll 32s linear infinite;}
+  .clients-track{
+    display:flex; width:max-content; direction:ltr;
+    animation:scroll 32s linear infinite;
+  }
+  .clients-set{display:flex; flex:0 0 auto; gap:56px; padding-right:56px;}
   .clients-track span{
     font-family:'Cairo',sans-serif; font-weight:700; font-size:1.05rem; color:var(--ink-soft);
     white-space:nowrap; opacity:0.75;
@@ -288,6 +299,7 @@
     display:grid; grid-template-columns:280px 1fr; gap:48px; align-items:center;
     background:var(--white); border:1px solid var(--line); border-radius:6px; padding:48px; position:relative; overflow:hidden;
   }
+  .leader-wrap + .leader-wrap{margin-top:48px;}
   .leader-wrap::after{
     content:""; position:absolute; bottom:0; left:0; width:100%; height:8px;
     background:linear-gradient(90deg, var(--crimson) 0 62%, var(--gold) 62% 100%);
@@ -356,6 +368,54 @@
     .hero{min-height:auto;}
     .hero-grid{padding:64px 0;}
   }
+  .lang-toggle{
+    display:inline-flex; align-items:center; gap:6px; flex-shrink:0;
+    padding:7px 11px; border:1px solid var(--line); border-radius:999px;
+    background:var(--white); color:var(--ink); font-family:'Cairo',sans-serif;
+    font-weight:700; font-size:.78rem; line-height:1; cursor:pointer; direction:ltr;
+    transition:background .2s, color .2s, border-color .2s, transform .2s;
+  }
+  .lang-toggle:hover{border-color:var(--gold); color:var(--crimson); transform:translateY(-1px);}
+  .lang-toggle:focus-visible{outline:2px solid var(--gold); outline-offset:3px;}
+  .lang-toggle .lt-sep{color:var(--ink-soft); font-weight:400;}
+  .lang-toggle[aria-pressed="true"]{background:var(--ink); border-color:var(--ink); color:var(--white);}
+  .lang-toggle[aria-pressed="true"] .lt-en{color:rgba(255,253,249,.55);}
+  .lang-toggle[aria-pressed="true"] .lt-ar{color:var(--gold-light);}
+
+  html[dir="rtl"]{direction:rtl;}
+  html[dir="rtl"] body{text-align:right;}
+  html[dir="rtl"] .nav, html[dir="rtl"] .mobile-menu{direction:rtl;}
+  html[dir="rtl"] .brand, html[dir="rtl"] .brand-text .en{direction:ltr;}
+  html[dir="rtl"] .brand-text .ar{text-align:right;}
+  html[dir="rtl"] .hero-content, html[dir="rtl"] .about-copy, html[dir="rtl"] .section-head,
+  html[dir="rtl"] .leader-wrap > div, html[dir="rtl"] .contact-info, html[dir="rtl"] .footer-row{text-align:right;}
+  html[dir="rtl"] .eyebrow{text-align:right; direction:rtl;}
+  html[dir="rtl"] .eyebrow::before{left:auto; right:0;}
+  html[dir="rtl"] nav.links a::after{left:auto; right:0;}
+  html[dir="rtl"] .hero-diagonal{left:0; right:auto; clip-path:polygon(62% 0,100% 0,100% 100%,38% 100%);}
+  html[dir="rtl"] .hero-stats .stat{
+    padding-right:0; margin-right:0; padding-left:36px; margin-left:36px;
+    border-right:0; border-left:1px solid rgba(255,253,249,.25);
+  }
+  html[dir="rtl"] .hero-stats .stat:first-child{padding-left:0; margin-left:0;}
+  html[dir="rtl"] .hero-stats .stat:last-child{border-left:0;}
+  html[dir="rtl"] .about-media::after{left:auto; right:-18px;}
+  html[dir="rtl"] .legacy-note{border-left:0; border-right:4px solid var(--gold);}
+  html[dir="rtl"] .project .loc, html[dir="rtl"] .project h3, html[dir="rtl"] .project p,
+  html[dir="rtl"] .service h3, html[dir="rtl"] .service p, html[dir="rtl"] .mp-item,
+  html[dir="rtl"] .cinfo-row .lbl, html[dir="rtl"] .cinfo-row .val{text-align:right;}
+  html[dir="rtl"] .leader-name-en{direction:ltr; text-align:right;}
+  html[dir="rtl"] .leader-name-ar, html[dir="rtl"] .leader-role{text-align:right;}
+  html[dir="rtl"] .footer-row{justify-content:space-between;}
+
+  @media (max-width:920px){
+    html[dir="rtl"] .leader-wrap{grid-template-columns:1fr; text-align:center;}
+    html[dir="rtl"] .leader-wrap > div{text-align:center;}
+  }
+  @media (max-width:600px){
+    .nav-cta{display:none !important;}
+    .lang-toggle{padding:7px 9px;}
+  }
 </style>
 </head>
 <body>
@@ -365,7 +425,7 @@
 <header>
   <div class="wrap nav">
     <a href="#top" class="brand">
-      <svg class="brand-mark" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <svg class="brand-mark" id="img-logo" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <circle cx="30" cy="30" r="14" stroke="#B81F2E" stroke-width="1.6"/>
         <circle cx="22" cy="26" r="14" stroke="#A8863C" stroke-width="1.6"/>
         <circle cx="38" cy="26" r="14" stroke="#241C15" stroke-width="1.6" stroke-opacity="0.55"/>
@@ -385,6 +445,9 @@
       <a href="#contact">Contact</a>
     </nav>
     <a href="#contact" class="nav-cta" style="display:inline-flex;">Get a Quote</a>
+    <button type="button" class="lang-toggle" id="langToggle" aria-pressed="false" aria-label="Switch to Arabic">
+      <span class="lt-en">EN</span><span class="lt-sep">/</span><span class="lt-ar">عربي</span>
+    </button>
     <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="#241C15" stroke-width="2" stroke-linecap="round"/></svg>
     </button>
@@ -403,7 +466,7 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-bg" role="img" aria-label="Construction site with cranes at sunset"></div>
+    <div class="hero-bg" id="img-hero" role="img" aria-label="Construction site with cranes at sunset"></div>
     <div class="hero-diagonal"></div>
     <div class="wrap hero-grid">
       <div class="hero-content">
@@ -432,7 +495,7 @@
     <div class="wrap about-grid">
       <div class="about-media">
         <!-- IMAGE PLACEHOLDER: assets/images/about-team.jpg (~1200x900) -->
-        <div class="img-ph" style="height:380px; border-radius:6px;"><span>assets/images/<br>about-team.jpg</span></div>
+        <div class="img-ph" id="img-about" style="height:380px; border-radius:6px;"><span>assets/images/<br>about-team.jpg</span></div>
       </div>
       <div class="about-copy">
         <span class="eyebrow">About Nexus World</span>
@@ -458,43 +521,43 @@
       </div>
       <div class="services-grid">
         <div class="service">
-          <!-- ICON PLACEHOLDER: assets/icons/icon-general-building.svg -->
-          <div class="icon-ph">icon-<br>general-<br>building</div>
+          <!-- ICON PLACEHOLDER: assets/icons/icon-general-building.png -->
+          <div class="icon-ph" data-icon="general-building">icon-<br>general-<br>building</div>
           <span class="idx">01</span>
           <h3>General Building Construction</h3>
           <p>Full-scope civil construction for hospitals, residential compounds and industrial facilities, from foundation to finishing.</p>
         </div>
         <div class="service">
-          <!-- ICON PLACEHOLDER: assets/icons/icon-mechanical-electrical.svg -->
-          <div class="icon-ph">icon-<br>mech-<br>elec</div>
+          <!-- ICON PLACEHOLDER: assets/icons/icon-mechanical-electrical.png -->
+          <div class="icon-ph" data-icon="mechanical-electrical">icon-<br>mech-<br>elec</div>
           <span class="idx">02</span>
           <h3>Mechanical &amp; Electrical Works</h3>
           <p>Design, installation and commissioning of mechanical systems and electrical infrastructure for commercial and industrial sites.</p>
         </div>
         <div class="service">
-          <!-- ICON PLACEHOLDER: assets/icons/icon-heavy-equipment.svg -->
-          <div class="icon-ph">icon-<br>heavy-<br>equip</div>
+          <!-- ICON PLACEHOLDER: assets/icons/icon-heavy-equipment.png -->
+          <div class="icon-ph" data-icon="heavy-equipment">icon-<br>heavy-<br>equip</div>
           <span class="idx">03</span>
           <h3>Heavy Equipment Rental</h3>
           <p>Access to plant and heavy equipment for erection, piping and structural works, sized to your project timeline.</p>
         </div>
         <div class="service">
-          <!-- ICON PLACEHOLDER: assets/icons/icon-instrumentation.svg -->
-          <div class="icon-ph">icon-<br>instrument-<br>ation</div>
+          <!-- ICON PLACEHOLDER: assets/icons/icon-instrumentation.png -->
+          <div class="icon-ph" data-icon="instrumentation">icon-<br>instrument-<br>ation</div>
           <span class="idx">04</span>
           <h3>Process Instrumentation &amp; Integration</h3>
           <p>Installation of pneumatic and electronic instrument devices, process skid fabrication, and hydraulic/pneumatic control systems.</p>
         </div>
         <div class="service">
-          <!-- ICON PLACEHOLDER: assets/icons/icon-manpower.svg -->
-          <div class="icon-ph">icon-<br>manpower</div>
+          <!-- ICON PLACEHOLDER: assets/icons/icon-manpower.png -->
+          <div class="icon-ph" data-icon="manpower">icon-<br>manpower</div>
           <span class="idx">05</span>
           <h3>Technical Manpower Supply</h3>
           <p>Vetted engineers, supervisors and tradesmen for oil &amp; gas, petrochemical, offshore, power and desalination projects.</p>
         </div>
         <div class="service">
-          <!-- ICON PLACEHOLDER: assets/icons/icon-maintenance.svg -->
-          <div class="icon-ph">icon-<br>maintenance</div>
+          <!-- ICON PLACEHOLDER: assets/icons/icon-maintenance.png -->
+          <div class="icon-ph" data-icon="maintenance">icon-<br>maintenance</div>
           <span class="idx">06</span>
           <h3>Start-Up &amp; Maintenance</h3>
           <p>Continuous maintenance services for process control instrumentation, plus site safety programs and inspection support.</p>
@@ -517,7 +580,7 @@
       <div class="project-grid">
         <div class="project">
           <!-- IMAGE PLACEHOLDER: assets/images/project-al-salam-hospital.jpg (~800x500) -->
-          <div class="img-ph thumb" style="height:150px;"><span>assets/images/<br>project-al-salam-hospital.jpg</span></div>
+          <div class="img-ph thumb" id="img-project-1" style="height:150px;"><span>assets/images/<br>project-al-salam-hospital.jpg</span></div>
           <div class="body">
             <div class="loc">Khobar</div>
             <h3>Al-Salam Hospital</h3>
@@ -526,7 +589,7 @@
         </div>
         <div class="project">
           <!-- IMAGE PLACEHOLDER: assets/images/project-royal-commission.jpg (~800x500) -->
-          <div class="img-ph thumb" style="height:150px;"><span>assets/images/<br>project-royal-commission.jpg</span></div>
+          <div class="img-ph thumb" id="img-project-2" style="height:150px;"><span>assets/images/<br>project-royal-commission.jpg</span></div>
           <div class="body">
             <div class="loc">Jubail — Royal Commission</div>
             <h3>Project Complex, 2017</h3>
@@ -535,7 +598,7 @@
         </div>
         <div class="project">
           <!-- IMAGE PLACEHOLDER: assets/images/project-al-majd-square.jpg (~800x500) -->
-          <div class="img-ph thumb" style="height:150px;"><span>assets/images/<br>project-al-majd-square.jpg</span></div>
+          <div class="img-ph thumb" id="img-project-3" style="height:150px;"><span>assets/images/<br>project-al-majd-square.jpg</span></div>
           <div class="body">
             <div class="loc">Jubail</div>
             <h3>Al-Majd Square Compound</h3>
@@ -544,7 +607,7 @@
         </div>
         <div class="project">
           <!-- IMAGE PLACEHOLDER: assets/images/project-mowasat-parking.jpg (~800x500) -->
-          <div class="img-ph thumb" style="height:150px;"><span>assets/images/<br>project-mowasat-parking.jpg</span></div>
+          <div class="img-ph thumb" id="img-project-4" style="height:150px;"><span>assets/images/<br>project-mowasat-parking.jpg</span></div>
           <div class="body">
             <div class="loc">Khobar</div>
             <h3>Mowasat Hospital Parking</h3>
@@ -553,7 +616,7 @@
         </div>
         <div class="project">
           <!-- IMAGE PLACEHOLDER: assets/images/project-iskan-hakimiyeh.jpg (~800x500) -->
-          <div class="img-ph thumb" style="height:150px;"><span>assets/images/<br>project-iskan-hakimiyeh.jpg</span></div>
+          <div class="img-ph thumb" id="img-project-5" style="height:150px;"><span>assets/images/<br>project-iskan-hakimiyeh.jpg</span></div>
           <div class="body">
             <div class="loc">Dammam</div>
             <h3>Iskan Hakimiyeh</h3>
@@ -562,7 +625,7 @@
         </div>
         <div class="project">
           <!-- IMAGE PLACEHOLDER: assets/images/project-sinamar.jpg (~800x500) -->
-          <div class="img-ph thumb" style="height:150px;"><span>assets/images/<br>project-sinamar.jpg</span></div>
+          <div class="img-ph thumb" id="img-project-6" style="height:150px;"><span>assets/images/<br>project-sinamar.jpg</span></div>
           <div class="body">
             <div class="loc">Al-Hasa</div>
             <h3>Sinamar Development</h3>
@@ -583,15 +646,18 @@
     </div>
     <div class="clients-wrap">
       <div class="clients-track">
-        <span>SABIC</span><span>SAUDI ARAMCO</span><span>SAUDI KAYAN</span><span>SHARQ</span>
-        <span>ROYAL COMMISSION</span><span>TASNEE</span><span>FOSTER WHEELER</span><span>TECHNIMONT</span>
-        <span>SAMSUNG</span><span>BECHTEL</span><span>TECHNIP</span><span>SIEMENS</span>
-        <span>HANWHA</span><span>HYUNDAI</span><span>MARAFIQ</span>
-        <!-- duplicate for seamless loop -->
-        <span>SABIC</span><span>SAUDI ARAMCO</span><span>SAUDI KAYAN</span><span>SHARQ</span>
-        <span>ROYAL COMMISSION</span><span>TASNEE</span><span>FOSTER WHEELER</span><span>TECHNIMONT</span>
-        <span>SAMSUNG</span><span>BECHTEL</span><span>TECHNIP</span><span>SIEMENS</span>
-        <span>HANWHA</span><span>HYUNDAI</span><span>MARAFIQ</span>
+        <div class="clients-set">
+          <span>SABIC</span><span>SAUDI ARAMCO</span><span>SAUDI KAYAN</span><span>SHARQ</span>
+          <span>ROYAL COMMISSION</span><span>TASNEE</span><span>FOSTER WHEELER</span><span>TECHNIMONT</span>
+          <span>SAMSUNG</span><span>BECHTEL</span><span>TECHNIP</span><span>SIEMENS</span>
+          <span>HANWHA</span><span>HYUNDAI</span><span>MARAFIQ</span>
+        </div>
+        <div class="clients-set" aria-hidden="true">
+          <span>SABIC</span><span>SAUDI ARAMCO</span><span>SAUDI KAYAN</span><span>SHARQ</span>
+          <span>ROYAL COMMISSION</span><span>TASNEE</span><span>FOSTER WHEELER</span><span>TECHNIMONT</span>
+          <span>SAMSUNG</span><span>BECHTEL</span><span>TECHNIP</span><span>SIEMENS</span>
+          <span>HANWHA</span><span>HYUNDAI</span><span>MARAFIQ</span>
+        </div>
       </div>
     </div>
   </section>
@@ -601,7 +667,7 @@
     <div class="wrap manpower-grid-wrap">
       <div class="manpower-media">
         <!-- IMAGE PLACEHOLDER: assets/images/manpower-team.jpg (~1000x1200) -->
-        <div class="img-ph" style="height:420px; border-radius:6px;"><span>assets/images/<br>manpower-team.jpg</span></div>
+        <div class="img-ph" id="img-manpower" style="height:420px; border-radius:6px;"><span>assets/images/<br>manpower-team.jpg</span></div>
       </div>
       <div>
         <span class="eyebrow">Technical manpower supply</span>
@@ -634,12 +700,22 @@
       </div>
       <div class="leader-wrap">
         <!-- IMAGE PLACEHOLDER: assets/images/ceo-saiful-islam.jpg (square, e.g. 600x600) -->
-        <div class="leader-photo img-ph" style="border-radius:6px; aspect-ratio:1;"><span>assets/images/<br>ceo-saiful-islam.jpg</span></div>
+        <div class="leader-photo img-ph" id="img-ceo" style="border-radius:6px; aspect-ratio:1;"><span>assets/images/<br>ceo-saiful-islam.jpg</span></div>
         <div>
           <div class="leader-name-ar">سيف الإسلام</div>
           <div class="leader-name-en">Saiful Islam</div>
           <div class="leader-role">Chief Executive Officer (CEO)</div>
           <p>Saiful Islam founded Nexus World Company Limited after a career leading operations for civil, mechanical and electrical projects across Saudi Arabia's industrial sector — including hospital, residential and petrochemical-adjacent developments for clients such as SABIC, Saudi Aramco and the Royal Commission at Jubail. He built Nexus World to bring that same standard of delivery to a new generation of clients.</p>
+        </div>
+      </div>
+      <div class="leader-wrap">
+        <!-- IMAGE PLACEHOLDER: assets/images/cfo-azam-ahamed.jpg (square, e.g. 600x600) -->
+        <div class="leader-photo img-ph" id="img-cfo" style="border-radius:6px; aspect-ratio:1;"><span>assets/images/<br>cfo-azam-ahamed.jpg</span></div>
+        <div>
+          <div class="leader-name-ar">عزام أحمد</div>
+          <div class="leader-name-en">Azam Ahamed</div>
+          <div class="leader-role">Chief Financial Officer (CFO)</div>
+          <p>Azam Ahamed joined Nexus World as Chief Financial Officer after a career managing budgets, tenders and contracts for civil, mechanical and electrical works across Saudi Arabia's industrial sector — including hospital, residential and petrochemical-adjacent developments for clients such as SABIC, Saudi Aramco and the Royal Commission at Jubail. He keeps Nexus World's commercial and financial discipline tight, so every delivery stays on time and on budget.</p>
         </div>
       </div>
     </div>
@@ -701,6 +777,161 @@
 </footer>
 
 <script>
+  /* ============================================================
+     ASSET MAP — drop image files into assets/images/ with the
+     exact filenames below and they automatically appear on the
+     site (no code changes needed). If a file is missing the
+     dashed placeholder stays visible.
+  ============================================================ */
+  const ASSET_SWAP = [
+    { el: document.getElementById('img-about'),      path: 'assets/images/about-team.jpg',                             alt: 'Nexus World company team' },
+    { el: document.getElementById('img-project-1'),  path: 'assets/images/project-al-salam-hospital.jpg',             alt: 'Al-Salam Hospital' },
+    { el: document.getElementById('img-project-2'),  path: 'assets/images/project-royal-commission.jpg',              alt: 'Royal Commission project complex' },
+    { el: document.getElementById('img-project-3'),  path: 'assets/images/project-al-majd-square.jpg',                alt: 'Al-Majd Square compound' },
+    { el: document.getElementById('img-project-4'),  path: 'assets/images/project-mowasat-parking.jpg',               alt: 'Mowasat Hospital parking' },
+    { el: document.getElementById('img-project-5'),  path: 'assets/images/project-iskan-hakimiyeh.jpg',               alt: 'Iskan Hakimiyeh development' },
+    { el: document.getElementById('img-project-6'),  path: 'assets/images/project-sinamar.jpg',                       alt: 'Sinamar development' },
+    { el: document.getElementById('img-manpower'),   path: 'assets/images/manpower-team.jpg',                         alt: 'Nexus World technical manpower team' },
+    { el: document.getElementById('img-ceo'),        path: 'assets/images/ceo-saiful-islam.jpg',                        alt: 'Saiful Islam, Chief Executive Officer' },
+    { el: document.getElementById('img-cfo'),        path: 'assets/images/cfo-azam-ahamed.jpg',                        alt: 'Azam Ahamed, Chief Financial Officer' },
+  ];
+
+  ASSET_SWAP.forEach(function (entry) {
+    if (!entry.el) return;
+    const probe = new Image();
+    probe.onload = function () {
+      if (entry.hero) {
+        entry.el.style.backgroundImage =
+          "linear-gradient(100deg, rgba(20,15,10,.88) 0%, rgba(20,15,10,.72) 38%, rgba(20,15,10,.35) 62%, rgba(20,15,10,.15) 100%), url('" + entry.path + "')";
+        entry.el.style.backgroundSize = 'cover';
+        entry.el.style.backgroundPosition = 'center';
+      } else {
+        const img = document.createElement('img');
+        img.src = entry.path;
+        img.alt = entry.alt || '';
+        img.loading = 'lazy';
+        if (entry.el.classList.contains('thumb')) img.className = 'thumb';
+        img.style.cssText = 'width:100%; display:block; object-fit:cover; ' + (entry.el.getAttribute('style') || '');
+        entry.el.replaceWith(img);
+      }
+    };
+    probe.onerror = function () {};
+    probe.src = entry.path;
+  });
+
+
+    /* ============================================================
+     LOGO DROP-IN — drop assets/images/logo.png (or .jpg / .svg)
+     and it replaces the Nexus World brand mark with that image.
+     Missing file keeps the drawn mark. Drop the file, refresh.
+  ============================================================ */
+  (function () {
+    var mark = document.getElementById('img-logo');
+    if (!mark) return;
+    var tries = ['assets/images/logo2.png', 'assets/images/logo2.jpg', 'assets/images/logo2.svg'];
+    function tryAt(i) {
+      if (i >= tries.length) return;
+      var p = new Image();
+      p.onload = function () {
+        var img = document.createElement('img');
+        img.src = tries[i];
+        img.alt = 'Nexus World Company Limited';
+        img.className = 'brand-mark';
+        img.style.objectFit = 'contain';
+        mark.replaceWith(img);
+      };
+      p.onerror = function () { tryAt(i + 1); };
+      p.src = tries[i];
+    }
+    tryAt(0);
+  })();
+
+/* ============================================================
+     HERO SLIDESHOW — drop hero images into assets/slides/ named
+     slide-1.jpg, slide-2.jpg, ... and they play one by one
+     (fade + 4s interval + clickable dots). First missing number
+     stops the list. If no slides exist, falls back to the single
+     hero image (ASSET_SWAP hero row) or the dark gradient.
+  ============================================================ */
+  (function heroSlideshow(){
+    var SLIDES_DIR='assets/slides/';
+    var MAX=30;
+    var hero=document.getElementById('img-hero');
+    if(!hero) return;
+    function setBg(el, src){
+      el.style.backgroundImage=
+        "linear-gradient(100deg, rgba(16,12,8,.88) 0%, rgba(16,12,8,.72) 38%, rgba(16,12,8,.35) 62%, rgba(16,12,8,.15) 100%), url('"+src+"')";
+      el.style.backgroundSize='cover';
+      el.style.backgroundPosition='center';
+    }
+    var list=[], done=false, timer=null;
+    function build(){
+      if(!list.length) return;
+      if(list.length<2){ setBg(hero,list[0]); return; }
+      var layers=[];
+      for(var k=0;k<2;k++){
+        var l=document.createElement('div');
+        l.className='hero-slide';
+        hero.parentNode.insertBefore(l, hero.nextSibling);
+        layers.push(l);
+      }
+      var dotsHolder=document.createElement('div');
+      dotsHolder.className='slide-dots';
+      hero.parentNode.insertBefore(dotsHolder, layers[0]);
+      var dots=list.map(function(p,j){
+        var b=document.createElement('button');
+        b.type='button'; b.setAttribute('aria-label','Slide '+(j+1));
+        b.addEventListener('click', function(){ goto(j,true); });
+        dotsHolder.appendChild(b); return b;
+      });
+      var cur=0;
+      function render(){ dots.forEach(function(d,i){d.classList.toggle('active',i===cur);}); }
+      function goto(i,user){
+        cur=(i+list.length)%list.length;
+        setBg(layers[cur%2], list[cur]);
+        layers.forEach(function(l,j){ l.style.opacity = j===cur%2 ? 1 : 0; });
+        render();
+        if(user) restart();
+      }
+      function restart(){
+        clearInterval(timer);
+        timer=setInterval(function(){ goto(cur+1); },4000);
+      }
+      goto(0); restart();
+    }
+    function probe(i){
+      if(i>MAX||done){ if(!list.length) trySingle(); else build(); return; }
+      var im=new Image();
+      im.onload=function(){ list.push(SLIDES_DIR+'slide-'+i+'.jpg'); probe(i+1); };
+      im.onerror=function(){ done=true; if(!list.length) trySingle(); else build(); };
+      im.src=SLIDES_DIR+'slide-'+i+'.jpg';
+    }
+    function trySingle(){ /* ASSET_SWAP handles the single fallback; nothing to do */ }
+    probe(1);
+  })();
+
+  /* ============================================================
+     SERVICE ICONS — drop assets/icons/icon-<name>.png and they
+     replace the dashed box. Tries .png, then .svg.
+  ============================================================ */
+  document.querySelectorAll('.icon-ph[data-icon]').forEach(function(box){
+    var name=box.getAttribute('data-icon');
+    var exts=['png','svg'];
+    (function tryExt(i){
+      if(i>=exts.length) return;
+      var img=new Image();
+      img.onload=function(){
+        var ic=document.createElement('img');
+        ic.src='assets/icons/icon-'+name+'.'+exts[i];
+        ic.alt=name;
+        ic.style.cssText='width:44px;height:44px;object-fit:contain;display:block;';
+        box.replaceWith(ic);
+      };
+      img.onerror=function(){ tryExt(i+1); };
+      img.src='assets/icons/icon-'+name+'.'+exts[i];
+    })(0);
+  });
+
   const menuBtn = document.getElementById('menuBtn');
   const mobileMenu = document.getElementById('mobileMenu');
   menuBtn.addEventListener('click', () => {
@@ -711,6 +942,142 @@
     mobileMenu.classList.remove('open');
     menuBtn.setAttribute('aria-expanded', 'false');
   }));
+
+  (function () {
+    const root = document.documentElement;
+    const items = [];
+    const titleEn = 'Nexus World Company Limited — Civil Construction & Electromechanical';
+    const titleAr = 'نيكسس وورلد المحدودة — الإنشاءات المدنية والكهروميكانيكية';
+    const add = (selector, ar, index = 0) => {
+      const element = document.querySelectorAll(selector)[index];
+      if (element) items.push({element, ar, original: element.innerHTML});
+    };
+    const addAll = (selector, values) => {
+      document.querySelectorAll(selector).forEach((element, index) => {
+        if (index < values.length) items.push({element, ar: values[index], original: element.innerHTML});
+      });
+    };
+    const addText = (selector, ar, index = 0) => {
+      const element = document.querySelectorAll(selector)[index];
+      if (!element) return;
+      const node = Array.from(element.childNodes).find(child => child.nodeType === 3 && child.nodeValue.trim());
+      if (node) items.push({element, node, ar, original: node.nodeValue});
+    };
+
+    addAll('nav.links a', ['الرئيسية', 'من نحن', 'خدماتنا', 'مشاريعنا', 'عملاؤنا', 'اتصل بنا']);
+    addAll('.mobile-menu a', ['الرئيسية', 'من نحن', 'خدماتنا', 'مشاريعنا', 'عملاؤنا', 'اتصل بنا']);
+    add('.nav-cta', 'اطلب عرض سعر');
+    add('.hero .eyebrow', 'إنشاءات مدنية · كهروميكانيكية · أيدٍ عاملة');
+    add('.hero h1', 'نُشيّد بنية المملكة<br>التحتية، <em>بإتقانٍ هندسي</em>.');
+    add('.hero p.lede', 'تتولّى شركة نيكسس وورلد المحدودة أعمال البناء العام والأعمال الميكانيكية والكهربائية وتأجير المعدات الثقيلة في المنطقة الشرقية — بقيادة فريق يمتلك سجلاً يمتد لأكثر من عقد في مشاريع المستشفيات والمنشآت الصناعية والسكنية لدى أكبر الشركات في الممكلة.');
+    add('.hero-actions .btn-primary', 'اطلب عرضاً مقترحاً');
+    add('.hero-actions .btn-ghost', 'شاهد سجلنا');
+    addAll('.hero-stats .lbl', ['خطوط الخدمة الأساسية', 'المشاريع الرئيسية السابقة', 'سنوات من الخبرة القيادية', 'أدوار الكوادر العاملة']);
+
+    add('.about-copy .eyebrow', 'عن نيكسس وورلد');
+    add('.about-copy h2', 'شركة بُنيت على عقدٍ من التسليم العملي');
+    addAll('.about-copy > p', [
+      'شركة نيكسس وورلد المحدودة شركة سعودية للإنشاءات المدنية والأعمال الكهروميكانيكية مقرّها المنطقة الشرقية. نغطّي البناء العام وأعمال M&amp;E وتأجير المعدات الثقيلة وأجهزة القياس والتحكم — تقودها قيادة ذات خبرة مباشرة في تنفيذ مشاريع طبية وسكنية وصناعية عبر الخبر والدمام والجبيل.',
+      'نحن مصممون لتلبية احتياجات العملاء الصناعيين والتجاريين وفق أعلى المعايير: جدولة زمنية موثوقة، إدارة مواقع ترتكز على السلامة، وكوادر بشرية على دراية تامة بمعايير لدى أبرز الجهات المشغلة في المملكة العربية السعودية.'
+    ]);
+    addAll('.about-list li', [
+      'شركة سعودية 100% تخدم المنطقة الشرقية',
+      'قيادة بخبرة في معايير SABIC وSaudi Aramco والهيئة الملكية',
+      'تنفيذ متكامل للمشاريع، من مرحلة الأساسات وحتى تشغيل أنظمة القياس والتحكم'
+    ]);
+
+    add('#services .section-head .eyebrow', 'ماذا نقدم');
+    add('#services .section-head h2', 'جميع أنواع أعمال الإنشاءات المدنية والكهروميكانيكية');
+    add('#services .section-head p', 'من أعمال التأسيس حتى التشغيل، تغطي نيكسس وورلد النطاق الكامل للبناء والتجهيز والدعم الفني الذي يعتمد عليه العملاء الصناعيون والتجاريون في المملكة.');
+    addAll('#services .service h3', ['إنشاءات المباني العامة', 'الأعمال الميكانيكية والكهربائية', 'تأجير المعدات الثقيلة', 'أجهزة القياس والتحكم والتكامل', 'توريد الكوادر الفنية', 'التشغيل والصيانة']);
+    addAll('#services .service p', [
+      'إنشاءات مدنية متكاملة للمستشفيات والمجمعات السكنية والمنشآت الصناعية، من الأساس إلى التشطيب.',
+      'تصميم وتركيب وتشغيل الأنظمة الميكانيكية والبنية الكهربائية للمواقع التجارية والصناعية.',
+      'توفير المصانع والمعدات الثقيلة لأعمال التركيبات والمواسير والأعمال الإنشائية، وفقاً لجدول مشروعك.',
+      'تركيب أجهزة القياس الهوائية والإلكترونية، وتصنيع قواعد العمليات، وأنظمة التحكم الهيدروليكي والهوائي.',
+      'مهندسون ومشرفون وحرفيون مؤهلون لمشاريع النفط والغاز، البتروكيماويات، الأعمال البحرية، الطاقة والتحلية',
+      'خدمات صيانة مستمرة لأجهزة قياس العمليات، إضافة إلى برامج السلامة في الموقع ودعم التفتيش.'
+    ]);
+
+    add('#projects .section-head .eyebrow', 'سجل موثق');
+    add('#projects .section-head h2', 'مشاريع قدّمتها قيادتنا');
+    add('#projects .section-head p', 'قبل تأسيس نيكسس وورلد، نفّذ فريق قيادتنا هذه المشاريع في المنطقة الشرقية — وهي الخبرة نفسها المدمجة اليوم في كل تعامل مع نيكسس وورلد.');
+    add('.legacy-note p', '<strong>ملاحظة حول الخبرة:</strong> المشاريع أدناه نُفّذت بواسطة قيادة نيكسس وورلد خلال عملهم السابق في قطاع الإنشاءات بالمنطقة، وتمثّل الخبرة التشغيلية التي تقدّمها نيكسس وورلد اليوم لعملائها الجدد.');
+    addAll('.project .loc', ['الخبر', 'الجبيل — اللجنة الملكية', 'الجبيل', 'الخبر', 'الدمام', 'الأحساء']);
+    addAll('.project h3', ['مستشفى السلام', 'مشروع مجمع 2017', 'مجمع المجد', 'مواقف مستشفى المواساة', 'إسكان حكيمية', 'تطوير سينامار']);
+    addAll('.project p', [
+      'تطوير مستشفى متعدد المباني يشمل مهبط طائرات ومبنى مواقف ومسطحات خضراء.',
+      'مبانٍ تجارية ومركزية أُنجزت للجنة الملكية في الجبيل، بما يشمل أعمال الواجهات الخارجية.',
+      'تطوير مجمع سكني واسع عام 2017 — أُنجز بالتنسيق عبر عدة كتل بناء متزامنة.',
+      'إنشاء موقف سيارات هيكلي متعدد الطوابق لمستشفى المواساة.',
+      'إنشاء وحدات سكنية مسبقة الصب وتجميعها في الموقع لتطوير إسكان حكيمية.',
+      'إنشاء مبنى مسبق الصب من طابقين مع التشطيبات الإنشائية الكاملة.'
+    ]);
+
+    add('#clients .section-head .eyebrow', 'سجل التعامل مع');
+    add('#clients .section-head h2', 'موثوقون لدى كبرى الأسماء في المنطقة');
+
+    add('#manpower .eyebrow', 'توريد الكوادر الفنية');
+    add('#manpower h2', 'كوادر ماهرة، جاهزة للإيفاد');
+    add('#manpower p', 'لقطاعات النفط والغاز والبتروكيماويات والبحرية والطاقة وتحلية المياه والصناعة العامة — بكوادر موردة وفق متطلبات مشروعك.');
+    addAll('.mp-item', [
+      'مدراء المشاريع', 'المهندسون الكهربائيون', 'المهندسون الميكانيكيون', 'مهندسو أجهزة القياس',
+      'ضباط السلامة', 'رسّامو AutoCAD', 'المشرفون الكهربائيون', 'فنيو الأجهزة',
+      'الكهربائيون الصناعيون', 'عمال التوصيلات الكهربائية والتركيبات', 'فنيو التكييف والتهوية', 'عمال التصنيع واللحام'
+    ]);
+
+    add('#leadership .section-head .eyebrow', 'القيادة');
+    add('#leadership .section-head h2', 'قيادة من المقدمة');
+    addAll('.leader-role', ['الرئيس التنفيذي (CEO)', 'المدير المالي (CFO)']);
+    addAll('.leader-wrap p', [
+      'أسّس سيف الإسلام شركة نيكسس وورلد المحدودة بعد مسيرة قاد فيها عمليات مشاريع مدنية وميكانيكية وكهربائية في القطاع الصناعي السعودي — بما في ذلك مشاريع طبية وسكنية وتطويرات مرتبطة بالقطاع البتروكيماوي لعملاء مثل سابك وأرامكو والهيئة الملكية في الجبيل. وقد أسس نيكسس وورلد ليقدم نفس مستوى الجودة في التنفيذ لجيل جديد من العملاء.',
+      'انضم عزام أحمد إلى نيكسس وورلد بمنصب المدير المالي بعد مسيرة مهنية في إدارة الميزانيات والمناقصات والعقود لأعمال مدنية وميكانيكية وكهربائية عبر القطاع الصناعي في المملكة العربية السعودية — بما في ذلك مشاريع طبية وسكنية وتطويرات مرتبطة بالقطاع البتروكيماوي لعملاء مثل سابك وأرامكو السعودية والهيئة الملكية في الجبيل. ويحرص على انضباط الأداء التجاري والمالي في نيكسس وورلد، بما يضمن تسليم كل مشروع في الوقت المحدد وضمن الميزانية المعتمدة.'
+    ]);
+
+    add('#contact .section-head .eyebrow', 'تواصل معنا');
+    add('#contact .section-head h2', 'ابدأ مشروعك مع نيكسس وورلد');
+    add('#contact .section-head p', 'تواصل معنا لزيارة موقع أو عرض سعر للكوادر أو مقترح مشروع متكامل — يرد فريقنا خلال يوم عمل واحد.');
+    addAll('.cinfo-row .lbl', ['الهاتف', 'البريد الإلكتروني', 'الموقع الإلكتروني', 'العنوان']);
+    add('.contact-info .cinfo-row:nth-child(4) .val', '5D Business Park، طريق الدمام–الجبيل السريع، المملكة العربية السعودية');
+    addText('.whatsapp-cta', 'تواصل معنا عبر الواتس أب');
+    addText('.footer-row > span:last-child', '© 2026 Nexus World Company Limited · طريق الدمام–الجبيل السريع، المملكة العربية السعودية');
+
+    const updateAccessibility = (arabic) => {
+      const menu = document.getElementById('menuBtn');
+      const hero = document.getElementById('img-hero');
+      const map = document.querySelector('.map-embed');
+      const toggle = document.getElementById('langToggle');
+      if (menu) menu.setAttribute('aria-label', arabic ? 'فتح القائمة' : 'Open menu');
+      if (hero) hero.setAttribute('aria-label', arabic ? 'موقع بناء مع رافعات عند الغروب' : 'Construction site with cranes at sunset');
+      if (map) map.setAttribute('title', arabic ? 'خريطة موقع شركة نيكسس وورلد' : 'Nexus World Company Limited location map');
+      if (toggle) toggle.setAttribute('aria-label', arabic ? 'التبديل إلى الإنجليزية' : 'Switch to Arabic');
+      toggle && toggle.setAttribute('aria-pressed', arabic ? 'true' : 'false');
+      document.querySelectorAll('.slide-dots button').forEach((button, index) => button.setAttribute('aria-label', arabic ? 'الشريحة ' + (index + 1) : 'Slide ' + (index + 1)));
+    };
+
+    const applyLanguage = (arabic) => {
+      items.forEach(item => {
+        if (item.node) item.node.nodeValue = arabic ? item.ar : item.original;
+        else item.element.innerHTML = arabic ? item.ar : item.original;
+      });
+      root.setAttribute('lang', arabic ? 'ar' : 'en');
+      root.setAttribute('dir', arabic ? 'rtl' : 'ltr');
+      document.title = arabic ? titleAr : titleEn;
+      updateAccessibility(arabic);
+    };
+
+    const toggle = document.getElementById('langToggle');
+    toggle.addEventListener('click', () => {
+      const arabic = root.getAttribute('lang') !== 'ar';
+      applyLanguage(arabic);
+      try { localStorage.setItem('nexus-lang', arabic ? 'ar' : 'en'); } catch (error) {}
+    });
+
+    let saved = 'en';
+    try { saved = localStorage.getItem('nexus-lang') || 'en'; } catch (error) {}
+    applyLanguage(saved === 'ar');
+    window.setTimeout(() => updateAccessibility(root.getAttribute('lang') === 'ar'), 2000);
+  })();
 </script>
 
 </body>
