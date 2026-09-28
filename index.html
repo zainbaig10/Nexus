@@ -6,7 +6,7 @@
 <title>Nexus World Company Limited — Civil Construction &amp; Electromechanical | Saudi Arabia</title>
 <meta name="description" content="Nexus World Company Limited is a Saudi construction and electromechanical company in the Eastern Province, delivering precast buildings, civil construction, mechanical and electrical works, manpower supply, heavy equipment rental, start-up and maintenance, and process instrumentation.">
 <meta name="author" content="Nexus World Company Limited">
-<meta name="theme-color" content="#241C15">
+<meta name="theme-color" content="#6B0026">
 <link rel="canonical" href="https://nexusworldksa.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Nexus World Company Limited">
@@ -20,7 +20,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Nexus World Company Limited — Civil Construction &amp; Electromechanical">
 <meta name="twitter:description" content="Experience. Expertise. Execution. Excellence. A Saudi construction and electromechanical company serving the Eastern Province.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Crect width='60' height='60' fill='%23241C15'/%3E%3Ccircle cx='30' cy='30' r='13' fill='none' stroke='%23B81F2E' stroke-width='2.5'/%3E%3Ccircle cx='22' cy='26' r='13' fill='none' stroke='%23A8863C' stroke-width='2.5'/%3E%3Ccircle cx='38' cy='26' r='13' fill='none' stroke='%23FFFDF9' stroke-width='2.5' opacity='.6'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Crect width='60' height='60' fill='%23450018'/%3E%3Ccircle cx='30' cy='30' r='13' fill='none' stroke='%23C89B32' stroke-width='2.5'/%3E%3Ccircle cx='22' cy='26' r='13' fill='none' stroke='%236B0026' stroke-width='2.5'/%3E%3Ccircle cx='38' cy='26' r='13' fill='none' stroke='%23E3C46B' stroke-width='2.5' opacity='.6'/%3E%3C/svg%3E">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -56,16 +56,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --crimson:#B81F2E;
-    --crimson-dark:#7E1420;
-    --gold:#A8863C;
-    --gold-light:#C9AA6A;
-    --cream:#F6F1E7;
-    --sand:#EAE1CC;
-    --ink:#241C15;
-    --ink-soft:#5C5042;
-    --line:rgba(36,28,21,0.12);
-    --white:#FFFDF9;
+    /* ---------- Nexus World brand palette ---------- */
+    --burgundy:#6B0026;        /* Primary Burgundy   */
+    --burgundy-deep:#450018;   /* Deep Burgundy      */
+    --burgundy-accent:#970038; /* Accent Burgundy    */
+    --gold:#C89B32;            /* Corporate Gold     */
+    --gold-light:#E3C46B;      /* Light Gold         */
+    --cream:#FFF8EC;           /* Cream / Warm White */
+    --white:#FFFFFF;           /* Pure White         */
+    --ink:#111111;             /* Near Black         */
+    --charcoal:#202228;        /* Dark Charcoal      */
+    --ink-soft:#202228;        /* secondary text     */
+    --line:rgba(200,155,50,0.32);
   }
   /* ============================================================
      NEXUS WORLD — ASSET REFERENCE
@@ -100,6 +102,13 @@
        ongoing-saudi-aramco-ajayl.jpg
        ongoing-mouwasat-khobar.jpg
 
+     Video media — drop the file at the exact path and the matching slot
+     picks it up on refresh. No poster images are needed — each clip shows
+     its own natural first frame. See the "video (drop-in media)" CSS block above.
+       assets/videos/nexus-world-in-action.mp4
+       assets/videos/workforce-capability.mp4
+       assets/videos/logo-animation.mp4
+
      Core Line Service cards use inline line icons defined in the
      markup — no icon files and no service photographs required.
      ============================================================ */
@@ -126,7 +135,7 @@
   .ribbon{
     position:relative;
     height:14px;
-    background:linear-gradient(90deg, var(--crimson) 0%, var(--crimson) 62%, var(--gold) 62%, var(--gold) 100%);
+    background:linear-gradient(90deg, var(--burgundy) 0%, var(--burgundy) 62%, var(--gold) 62%, var(--gold) 100%);
     clip-path:polygon(0 0,100% 0,100% 100%,3% 100%);
   }
   .ribbon.flip{clip-path:polygon(0 0,97% 0,100% 100%,0 100%);}
@@ -135,8 +144,8 @@
   .img-ph{
     display:flex; align-items:center; justify-content:center; text-align:center;
     background:
-      repeating-linear-gradient(45deg, rgba(36,28,21,0.05) 0 10px, transparent 10px 20px),
-      var(--sand);
+      repeating-linear-gradient(45deg, rgba(17,17,17,0.05) 0 10px, transparent 10px 20px),
+      var(--cream);
     border:2px dashed var(--gold);
     color:var(--ink-soft);
     font-family:'JetBrains Mono',monospace;
@@ -162,18 +171,18 @@
   .brand img.brand-mark{display:block; object-fit:contain;}
   .brand-text{display:flex; flex-direction:column; line-height:1.05;}
   .brand-text .en{font-family:'Cairo',sans-serif; font-weight:800; font-size:1.02rem; color:var(--ink);}
-  .brand-text .ar{font-family:'Cairo',sans-serif; font-weight:700; font-size:0.68rem; color:var(--crimson); direction:rtl;}
+  .brand-text .ar{font-family:'Cairo',sans-serif; font-weight:700; font-size:0.68rem; color:var(--burgundy); direction:rtl;}
   nav.links{display:flex; gap:28px; font-size:0.9rem; font-weight:600;}
   nav.links a{position:relative; padding:4px 0; color:var(--ink-soft); transition:color .2s;}
-  nav.links a.active, nav.links a:hover, nav.links a:focus-visible{color:var(--crimson);}
+  nav.links a.active, nav.links a:hover, nav.links a:focus-visible{color:var(--burgundy);}
   nav.links a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--gold);transition:width .25s;}
   nav.links a:hover::after, nav.links a.active::after{width:100%;}
   .nav-cta{
-    background:var(--crimson); color:var(--white); font-weight:700; font-size:0.83rem;
+    background:var(--burgundy-accent); color:var(--white); font-weight:700; font-size:0.83rem;
     padding:10px 20px; border-radius:2px; transition:background .2s, transform .2s;
     white-space:nowrap;
   }
-  .nav-cta:hover{background:var(--crimson-dark); transform:translateY(-1px);}
+  .nav-cta:hover{background:var(--burgundy); transform:translateY(-1px);}
   .menu-btn{display:none; background:none; border:none; cursor:pointer; padding:6px;}
   .menu-btn svg{display:block;}
   .mobile-menu{
@@ -194,12 +203,12 @@
   .hero-bg{
     position:absolute; inset:0; z-index:0;
     /* TODO: set background-image to
-       linear-gradient(100deg, rgba(20,15,10,.88) 0%, rgba(20,15,10,.72) 38%, rgba(20,15,10,.35) 62%, rgba(20,15,10,.15) 100%),
+       linear-gradient(100deg, rgba(17,17,17,.88) 0%, rgba(17,17,17,.72) 38%, rgba(17,17,17,.35) 62%, rgba(17,17,17,.15) 100%),
        url('assets/images/hero-construction.jpg')
        once the file exists — keep the dark gradient layered on top so hero text stays readable. */
     background:
-      repeating-linear-gradient(45deg, rgba(255,253,249,0.04) 0 12px, transparent 12px 24px),
-      linear-gradient(100deg, #1a140f 0%, #241c15 45%, #3a2e22 100%);
+      repeating-linear-gradient(45deg, rgba(255,255,255,0.04) 0 12px, transparent 12px 24px),
+      linear-gradient(100deg, var(--burgundy-deep) 0%, var(--burgundy) 45%, var(--burgundy-accent) 100%);
     background-size:cover;
     background-position:center;
   }
@@ -211,12 +220,12 @@
     position:absolute; bottom:24px; left:0; right:0; z-index:7; display:flex; justify-content:center; gap:10px;
   }
   .slide-dots button{
-    width:10px; height:10px; padding:0; border:1.5px solid rgba(255,253,249,.55); background:transparent; border-radius:50%; cursor:pointer; transition:background .2s, transform .2s;
+    width:10px; height:10px; padding:0; border:1.5px solid rgba(255,255,255,.55); background:transparent; border-radius:50%; cursor:pointer; transition:background .2s, transform .2s;
   }
   .slide-dots button.active{ background:var(--gold-light); border-color:var(--gold-light); transform:scale(1.18); }
   .hero-diagonal{
     position:absolute; top:0; right:0; width:46%; height:100%; z-index:1;
-    background:linear-gradient(160deg, var(--crimson) 0%, var(--crimson-dark) 55%, var(--gold) 100%);
+    background:linear-gradient(160deg, var(--burgundy) 0%, var(--burgundy-deep) 55%, var(--gold) 100%);
     clip-path:polygon(38% 0,100% 0,100% 100%,64% 100%);
     opacity:0.92;
   }
@@ -245,7 +254,7 @@
     font-size:1.35rem; font-weight:700; color:var(--gold-light); margin-bottom:22px; max-width:520px;
   }
   .hero p.lede{
-    font-size:1.05rem; color:rgba(255,253,249,0.85); max-width:520px; margin-bottom:34px; line-height:1.65;
+    font-size:1.05rem; color:rgba(255,255,255,0.85); max-width:520px; margin-bottom:34px; line-height:1.65;
   }
   .hero-actions{display:flex; gap:16px; flex-wrap:wrap;}
   .btn{
@@ -253,17 +262,17 @@
     padding:14px 26px; font-weight:700; font-size:0.94rem; border-radius:2px;
     transition:transform .2s, box-shadow .2s, background .2s;
   }
-  .btn-primary{background:var(--white); color:var(--ink);}
-  .btn-primary:hover{background:var(--gold-light); transform:translateY(-2px); box-shadow:0 10px 24px -10px rgba(0,0,0,0.4);}
-  .btn-ghost{border:1.5px solid rgba(255,253,249,0.6); color:var(--white);}
-  .btn-ghost:hover{background:rgba(255,253,249,0.12); transform:translateY(-2px);}
+  .btn-primary{background:var(--burgundy-accent); color:var(--white);}
+  .btn-primary:hover{background:var(--burgundy); transform:translateY(-2px); box-shadow:0 10px 24px -10px rgba(0,0,0,0.4);}
+  .btn-ghost{border:1.5px solid rgba(255,255,255,0.6); color:var(--white);}
+  .btn-ghost:hover{background:rgba(255,255,255,0.12); transform:translateY(-2px);}
 
   .hero-company{
     font-family:'Cairo',sans-serif; font-weight:900;
-    font-size:clamp(1.7rem,4.2vw,3.3rem);
+    font-size:clamp(1.75rem,4.6vw,3.5rem);
     line-height:1.08; letter-spacing:0.005em; color:var(--white);
     margin-bottom:16px; max-width:17ch; text-transform:uppercase;
-    text-shadow:0 2px 18px rgba(0,0,0,.45);
+    text-shadow:0 2px 24px rgba(0,0,0,.52);
   }
   .hero-keymsg{
     display:flex; flex-wrap:wrap; gap:4px 14px; align-items:center;
@@ -271,17 +280,17 @@
     letter-spacing:0.15em; text-transform:uppercase; color:var(--gold-light);
     margin-bottom:24px;
   }
-  .hero-keymsg span:not(:last-child)::after{content:"·"; margin-left:14px; color:rgba(255,253,249,0.45);}
+  .hero-keymsg span:not(:last-child)::after{content:"·"; margin-left:14px; color:rgba(255,255,255,0.45);}
   html[dir="rtl"] .hero-keymsg span:not(:last-child)::after{margin-left:0; margin-right:14px;}
 
   /* ---------- statistics ---------- */
-  .stats-band{background:var(--ink); color:var(--white); padding:60px 0;}
+  .stats-band{background:var(--charcoal); color:var(--white); padding:60px 0;}
   .stats-head{max-width:720px; margin-bottom:40px;}
   .stats-head .eyebrow{color:var(--gold-light); margin-bottom:12px;}
   .stats-head .eyebrow::before{background:var(--gold-light);}
   .stats-head h2{font-size:clamp(1.5rem,2.6vw,2.1rem); color:var(--white); margin-bottom:0;}
-  .stats-grid{display:grid; grid-template-columns:repeat(6,1fr); gap:1px; background:rgba(255,253,249,0.16); border:1px solid rgba(255,253,249,0.16);}
-  .stat-cell{background:var(--ink); padding:34px 20px 36px; text-align:center; position:relative;}
+  .stats-grid{display:grid; grid-template-columns:repeat(6,1fr); gap:1px; background:rgba(255,255,255,0.16); border:1px solid rgba(255,255,255,0.16);}
+  .stat-cell{background:var(--charcoal); padding:34px 20px 36px; text-align:center; position:relative;}
   .stat-cell::after{
     content:""; position:absolute; top:0; left:50%; transform:translateX(-50%);
     width:38px; height:2px; background:linear-gradient(90deg, transparent, var(--gold), transparent);
@@ -289,20 +298,20 @@
   .stat-cell .num{
     font-family:'Cairo',sans-serif; font-weight:900; color:var(--gold-light);
     font-size:clamp(1.5rem,2.9vw,2.6rem); line-height:1.04;
-    letter-spacing:-0.01em; text-shadow:0 2px 20px rgba(201,170,106,0.35);
+    letter-spacing:-0.01em; text-shadow:0 2px 20px rgba(227,196,107,0.35);
     overflow-wrap:break-word; word-break:normal;
   }
-  .stat-cell .lbl{font-size:0.8rem; color:rgba(255,253,249,0.8); margin-top:12px; line-height:1.45; overflow-wrap:break-word;}
+  .stat-cell .lbl{font-size:0.8rem; color:rgba(255,255,255,0.8); margin-top:12px; line-height:1.45; overflow-wrap:break-word;}
   html[dir="rtl"] .stat-cell{text-align:center;}
 
   /* ---------- section shell ---------- */
   section{padding:96px 0;}
   .section-head{max-width:640px; margin-bottom:56px;}
-  .section-head .eyebrow{margin-bottom:14px; color:var(--crimson-dark);}
+  .section-head .eyebrow{margin-bottom:14px; color:var(--burgundy-deep);}
   .section-head .eyebrow::before{background:var(--gold);}
   .section-head h2{font-size:clamp(1.7rem, 3vw, 2.4rem); margin-bottom:14px;}
   .section-head p{color:var(--ink-soft); font-size:1.02rem; line-height:1.6;}
-  .alt{background:var(--sand);}
+  .alt{background:var(--cream);}
 
   /* ---------- about ---------- */
   .about-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:56px; align-items:center;}
@@ -310,14 +319,14 @@
   .about-media img{border-radius:6px; width:100%; height:380px; object-fit:cover;}
   .about-media::after{
     content:""; position:absolute; bottom:-18px; left:-18px; width:130px; height:130px;
-    background:linear-gradient(135deg, var(--gold) 0%, var(--crimson) 100%);
+    background:linear-gradient(135deg, var(--gold) 0%, var(--burgundy) 100%);
     z-index:-1; border-radius:6px;
   }
   .about-copy p{color:var(--ink-soft); font-size:1.02rem; line-height:1.75; margin-bottom:18px;}
   .about-copy p:last-child{margin-bottom:0;}
   .about-list{list-style:none; margin-top:28px; display:grid; gap:14px;}
   .about-list li{display:flex; gap:12px; align-items:flex-start; font-size:0.95rem; color:var(--ink);}
-  .about-list li::before{content:"";width:8px; height:8px; border-radius:50%; background:var(--crimson); margin-top:7px; flex-shrink:0;}
+  .about-list li::before{content:"";width:8px; height:8px; border-radius:50%; background:var(--burgundy); margin-top:7px; flex-shrink:0;}
 
   /* ---------- services ---------- */
   /* 7 cards on a 4-column grid = 4 + 3. The grid background is transparent and
@@ -328,26 +337,26 @@
     background:var(--white); border:1px solid var(--line); border-radius:4px; overflow:hidden;
     display:flex; flex-direction:column; transition:background .25s, border-color .25s;
   }
-  .service:hover{background:var(--cream); border-color:rgba(168,134,60,0.5); transform:translateY(-4px); box-shadow:0 20px 40px -22px rgba(36,28,21,0.3);}
+  .service:hover{background:var(--cream); border-color:rgba(200,155,50,0.5); transform:translateY(-4px); box-shadow:0 20px 40px -22px rgba(17,17,17,0.3);}
   .service .media{
     position:relative; width:100%; height:162px; flex-shrink:0; overflow:hidden;
     background:
-      radial-gradient(130% 100% at 50% 0%, rgba(168,134,60,0.13), transparent 68%),
+      radial-gradient(130% 100% at 50% 0%, rgba(200,155,50,0.13), transparent 68%),
       linear-gradient(180deg, var(--white) 0%, var(--cream) 100%);
     border-bottom:1px solid var(--line);
     display:flex; align-items:center; justify-content:center;
   }
   .service .media::after{
     content:""; position:absolute; left:50%; bottom:0; transform:translateX(-50%);
-    width:46px; height:2px; background:linear-gradient(90deg, var(--crimson), var(--gold));
+    width:46px; height:2px; background:linear-gradient(90deg, var(--burgundy), var(--gold));
   }
   .svc-icon{
-    width:78px; height:78px; display:block; color:var(--crimson);
+    width:78px; height:78px; display:block; color:var(--gold);
     transition:color .25s, transform .25s;
   }
-  .service:hover .svc-icon{color:var(--crimson-dark); transform:translateY(-2px);}
+  .service:hover .svc-icon{color:var(--gold-light); transform:translateY(-2px);}
   .service .body{padding:26px 26px 30px; display:flex; flex-direction:column; flex:1;}
-  .service .idx{font-family:'JetBrains Mono',monospace; color:var(--gold); font-weight:600; font-size:0.85rem; margin-bottom:12px; display:block;}
+  .service .idx{font-family:'JetBrains Mono',monospace; color:var(--burgundy); font-weight:600; font-size:0.85rem; margin-bottom:12px; display:block;}
   .service h3{font-family:'Cairo',sans-serif; font-size:1.12rem; line-height:1.35; margin-bottom:10px; color:var(--ink); min-height:2.9em;}
   .service p{color:var(--ink-soft); font-size:0.9rem; line-height:1.6;}
 
@@ -364,11 +373,11 @@
     position:relative; background:var(--white); border:1px solid var(--line); border-radius:4px;
     overflow:hidden; transition:transform .25s, box-shadow .25s;
   }
-  .project:hover{transform:translateY(-4px); box-shadow:0 20px 40px -22px rgba(36,28,21,0.3);}
+  .project:hover{transform:translateY(-4px); box-shadow:0 20px 40px -22px rgba(17,17,17,0.3);}
   .project .thumb{height:170px; width:100%; object-fit:cover;}
   .project .thumb.img-ph{height:170px;}
   .project .body{padding:22px 22px 24px; display:flex; flex-direction:column; flex:1;}
-  .project .loc{font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--gold); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px;}
+  .project .loc{font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--burgundy); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px;}
   .project h3{font-family:'Cairo',sans-serif; font-size:1.05rem; line-height:1.35; margin-bottom:8px; min-height:2.9em;}
   .project p{color:var(--ink-soft); font-size:0.87rem; line-height:1.6;}
 
@@ -379,10 +388,10 @@
     overflow:hidden; display:flex; flex-direction:column;
     transition:transform .25s, box-shadow .25s, border-color .25s;
   }
-  .ongoing:hover{transform:translateY(-4px); box-shadow:0 20px 40px -22px rgba(36,28,21,0.3); border-color:rgba(168,134,60,0.5);}
+  .ongoing:hover{transform:translateY(-4px); box-shadow:0 20px 40px -22px rgba(17,17,17,0.3); border-color:rgba(200,155,50,0.5);}
   .ongoing-panel{
     position:relative; height:118px; flex-shrink:0; overflow:hidden;
-    background:linear-gradient(155deg, var(--ink) 0%, #33281E 58%, #453626 100%);
+    background:linear-gradient(155deg, var(--ink) 0%, var(--charcoal) 58%, var(--burgundy-deep) 100%);
     border-bottom:3px solid var(--gold);
     display:flex; align-items:flex-end; padding:14px 16px;
   }
@@ -395,11 +404,11 @@
     position:absolute; top:11px; right:12px; z-index:2;
     font-family:'JetBrains Mono',monospace; font-size:0.5rem; font-weight:600;
     letter-spacing:0.14em; text-transform:uppercase; color:var(--gold-light);
-    border:1px solid rgba(201,170,106,0.45); border-radius:2px; padding:2px 6px;
+    border:1px solid rgba(227,196,107,0.45); border-radius:2px; padding:2px 6px;
   }
   .ongoing > img{height:118px; width:100%; object-fit:cover; display:block; border-bottom:3px solid var(--gold);}
   .ongoing .body{padding:16px 14px 18px; display:flex; flex-direction:column; flex:1;}
-  .ongoing .loc{font-family:'JetBrains Mono',monospace; font-size:0.63rem; color:var(--gold); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:8px; line-height:1.4;}
+  .ongoing .loc{font-family:'JetBrains Mono',monospace; font-size:0.63rem; color:var(--burgundy); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:8px; line-height:1.4;}
   .ongoing h3{font-family:'Cairo',sans-serif; font-size:0.95rem; line-height:1.38; margin-bottom:0; overflow-wrap:break-word; min-height:2.76em;}
   .ongoing .client{
     font-family:'JetBrains Mono',monospace; font-size:0.6rem; line-height:1.5;
@@ -418,7 +427,7 @@
     mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%);
   }
   .clients-marquee::-webkit-scrollbar{display:none;}
-  .clients-marquee:focus-visible{outline:2px solid var(--crimson); outline-offset:-2px;}
+  .clients-marquee:focus-visible{outline:2px solid var(--gold); outline-offset:-2px;}
   .clients-track{display:flex; width:max-content; direction:ltr;}
   .clients-set{
     display:flex; align-items:center; flex:0 0 auto;
@@ -430,7 +439,7 @@
     line-height:1; display:flex; align-items:center; height:36px;
     opacity:0.95; transition:opacity .25s, color .25s;
   }
-  .clients-set span:hover{opacity:1; color:var(--crimson);}
+  .clients-set span:hover{opacity:1; color:var(--burgundy);}
 
   /* ---------- manpower ---------- */
   .manpower-grid-wrap{display:grid; grid-template-columns:0.85fr 1.15fr; gap:48px; align-items:center;}
@@ -442,57 +451,143 @@
     padding:14px 16px; font-size:0.85rem; font-weight:600; color:var(--ink);
     display:flex; align-items:center; gap:10px;
   }
-  .mp-item::before{content:"";width:6px; height:6px; background:var(--crimson); flex-shrink:0; border-radius:50%;}
+  .mp-item::before{content:"";width:6px; height:6px; background:var(--burgundy); flex-shrink:0; border-radius:50%;}
 
   /* ---------- leadership ---------- */
-  .leader-stack{display:grid; gap:36px;}
+  /* One coordinated system: identical width, height, padding, border and type on all four.
+     Card height is driven by the portrait/monogram box, so every card is pixel-identical. */
+  .leader-stack{display:grid; grid-template-columns:repeat(2,1fr); gap:36px; align-items:stretch;}
   .manpower-sub{
     font-family:'JetBrains Mono',monospace; font-size:0.78rem; font-weight:600;
-    letter-spacing:0.1em; text-transform:uppercase; color:var(--crimson);
+    letter-spacing:0.1em; text-transform:uppercase; color:var(--burgundy);
     margin-bottom:16px;
   }
-  .leader-wrap{
-    display:grid; grid-template-columns:290px 1fr; gap:48px; align-items:center;
-    background:var(--white); border:1px solid var(--line); border-radius:6px; padding:48px; position:relative; overflow:hidden;
+  .leader-card{
+    display:grid; grid-template-columns:184px 1fr; gap:30px; align-items:center;
+    min-height:298px; padding:34px; position:relative; overflow:hidden;
+    background:var(--white); border:1px solid var(--line); border-radius:6px;
   }
-  .leader-wrap::after{
+  /* subtle burgundy + gold bottom accent, identical on every card */
+  .leader-card::after{
     content:""; position:absolute; bottom:0; left:0; width:100%; height:8px;
-    background:linear-gradient(90deg, var(--crimson) 0 62%, var(--gold) 62% 100%);
+    background:linear-gradient(90deg, var(--burgundy) 0 62%, var(--gold) 62% 100%);
   }
-  /* CEO / CFO portraits — identical ratio, size, crop style and alignment */
-  .leader-photo{
+  /* shared portrait box — real photographs and monograms occupy exactly the same space */
+  .leader-photo, .leader-mono{
     width:100%; aspect-ratio:4/5; border-radius:6px; overflow:hidden;
-    background:var(--sand);
     display:flex; align-items:center; justify-content:center;
   }
+  .leader-photo{background:var(--cream);}
   .leader-photo img{width:100%; height:100%; object-fit:cover; object-position:50% 20%; display:block;}
-  /* text-only executive cards — intentional design, not a missing-photo placeholder */
-  .leader-wrap.text-only{
-    grid-template-columns:1fr; gap:0; align-items:start; padding:34px 36px 36px;
-    background:linear-gradient(115deg, var(--white) 0%, var(--cream) 100%);
+  /* monogram for leaders without a photograph — burgundy field, gold initials */
+  .leader-mono{
+    border:1px solid var(--gold);
+    background:
+      repeating-linear-gradient(45deg, rgba(227,196,107,0.07) 0 8px, transparent 8px 16px),
+      linear-gradient(160deg, var(--burgundy) 0%, var(--burgundy-deep) 100%);
   }
-  .leader-wrap.text-only::before{
-    content:""; position:absolute; top:0; left:0; width:4px; height:100%;
-    background:linear-gradient(180deg, var(--crimson) 0%, var(--gold) 100%);
+  .leader-mono span{
+    font-family:'Cairo',sans-serif; font-weight:900; font-size:3.1rem; line-height:1;
+    letter-spacing:0.06em; color:var(--gold-light);
+    text-shadow:0 2px 18px rgba(17,17,17,0.45);
   }
-  .leader-wrap.text-only .leader-name-en{font-size:clamp(1.45rem,2.1vw,1.85rem); line-height:1.2; margin-bottom:6px;}
-  .leader-wrap.text-only .leader-role{margin-bottom:0;}
-  .leader-rule{display:block; width:72px; height:3px; margin-top:16px; background:linear-gradient(90deg, var(--crimson), var(--gold));}
-  .leader-name-ar{font-family:'Cairo',sans-serif; direction:rtl; font-size:1.6rem; font-weight:700; color:var(--crimson); margin-bottom:2px;}
+  .leader-body{min-width:0;}
+  .leader-name-ar{
+    font-family:'Cairo',sans-serif; direction:rtl; font-size:1.3rem; font-weight:700;
+    color:var(--burgundy); margin:0 0 2px;
+  }
+  .leader-name-en{
+    font-family:'Cairo',sans-serif; font-weight:800; font-size:1.45rem; line-height:1.2;
+    margin:0 0 6px; letter-spacing:-0.01em;
+  }
+  .leader-role{
+    font-family:'JetBrains Mono',monospace; font-size:0.72rem; text-transform:uppercase;
+    letter-spacing:0.1em; color:var(--burgundy); margin:0;
+  }
+  .leader-rule{display:block; width:64px; height:3px; margin-top:14px; background:linear-gradient(90deg, var(--burgundy), var(--gold));}
+  .leader-card p{color:var(--ink-soft); font-size:0.9rem; line-height:1.62; margin:14px 0 0;}
+  .leader-name-ar{font-family:'Cairo',sans-serif; direction:rtl; font-size:1.6rem; font-weight:700; color:var(--burgundy); margin-bottom:2px;}
   .leader-name-en{font-family:'Cairo',sans-serif; font-weight:800; font-size:1.7rem; margin-bottom:4px;}
   .leader-role{font-family:'JetBrains Mono',monospace; font-size:0.78rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--gold); margin-bottom:18px;}
-  .leader-wrap p{color:var(--ink-soft); line-height:1.7; font-size:0.98rem; max-width:560px;}
+
+  /* ---------- video (drop-in media) ---------- */
+  /* Three self-contained media slots. No <source> is declared in the markup —
+     the loader at the foot of this file attaches src only when a slot comes
+     within 300px of the viewport, so an initial page view transfers ZERO
+     video bytes. All three carry preload="metadata" + muted and no autoplay, so
+     nothing ever starts with sound. Native controls stay available at all times.
+
+     Drop each file at the exact path and refresh — no code changes needed:
+       assets/videos/nexus-world-in-action.mp4
+       assets/videos/workforce-capability.mp4
+       assets/videos/logo-animation.mp4
+     No poster image is required or referenced: each clip shows its own natural
+     first frame, which the browser paints from preload="metadata" once a slot
+     approaches the viewport. Until then the frame shows the branded gradient
+     below, so a slot never presents as a black video box. */
+  .vfilm-section{padding:44px 0 52px;}
+  .vfilm-block{max-width:900px; margin:30px auto 0; text-align:center;}
+  .vfilm-title-sm{
+    font-family:'Cairo',sans-serif; font-weight:800; font-size:1.18rem; line-height:1.35;
+    color:var(--burgundy); margin-bottom:16px; letter-spacing:-0.005em;
+  }
+  .vfilm-cap{
+    font-family:'JetBrains Mono',monospace; font-size:0.66rem; font-weight:600;
+    letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-soft); margin-top:14px;
+  }
+  .vfilm{
+    position:relative; width:100%; overflow:hidden; margin:0;
+    border:1px solid var(--line); border-radius:6px;
+    background:
+      repeating-linear-gradient(45deg, rgba(255,255,255,0.04) 0 12px, transparent 12px 24px),
+      linear-gradient(120deg, var(--burgundy-deep) 0%, var(--burgundy) 55%, var(--burgundy-accent) 100%);
+  }
+  /* the box is locked to 16:9 by the frame, and the media is object-fit, so the
+     original aspect ratio is always preserved and never stretched */
+  .vfilm-frame{position:relative; width:100%; aspect-ratio:16/9;}
+  .vfilm video{width:100%; height:100%; display:block; background:transparent; object-fit:cover;}
+  /* the hero site film sits on the same wide measure as Key Ongoing Projects, and
+     carries the larger play target that gives the section its prominence */
+  .vfilm-feature .vfilm-play{width:88px; height:88px;}
+  .vfilm-feature .vfilm-play svg{width:30px; height:30px; margin-left:3px;}
+  /* the logo animation is letterboxed rather than cropped, so nothing is ever cut off.
+     Same 16:9 frame, radius and gold hairline as the others, in a calmer field so a
+     small brand mark never competes with the main site film. */
+  .vfilm-logo{width:100%; max-width:380px; margin:0 auto;
+    background:
+      repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0 12px, transparent 12px 24px),
+      linear-gradient(150deg, var(--charcoal) 0%, var(--burgundy-deep) 100%);}
+  .vfilm-logo video{object-fit:contain; padding:9% 11%;}
+  .vfilm-logo .vfilm-play{width:56px; height:56px; background:rgba(17,17,17,0.55);}
+  .vfilm-logo .vfilm-play svg{width:20px; height:20px;}
+  .vfilm-play{
+    position:absolute; inset:0; margin:auto; z-index:3;
+    width:78px; height:78px; padding:0; border-radius:50%; cursor:pointer;
+    background:rgba(69,0,24,0.78); border:1px solid var(--gold);
+    display:flex; align-items:center; justify-content:center;
+    transition:transform .22s, background .22s, box-shadow .22s, opacity .22s;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .vfilm-play::after{
+    content:""; position:absolute; inset:-10px; border-radius:50%;
+    border:1px solid rgba(227,196,107,0.45); opacity:.7; transition:inset .22s, opacity .22s;
+  }
+  .vfilm-play svg{width:26px; height:26px; display:block; fill:var(--white); margin-left:2px;}
+  .vfilm-play:hover{background:var(--burgundy-accent); transform:scale(1.07); box-shadow:0 12px 28px -12px rgba(0,0,0,0.55);}
+  .vfilm-play:hover::after{inset:-14px; opacity:1;}
+  .vfilm-play:focus-visible{outline:2px solid var(--gold-light); outline-offset:6px;}
+  .vfilm[data-state="playing"] .vfilm-play{opacity:0; pointer-events:none;}
 
   /* ---------- contact ---------- */
-  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:0; background:var(--ink); border-radius:6px; overflow:hidden;}
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:0; background:var(--charcoal); border-radius:6px; overflow:hidden;}
   .contact-info{padding:52px 48px; color:var(--white);}
   .contact-info h2{color:var(--white); margin-bottom:14px; font-size:2rem;}
-  .contact-info > p{color:rgba(255,253,249,0.7); margin-bottom:34px; line-height:1.6; max-width:440px;}
-  .cinfo-row{display:flex; gap:16px; padding:16px 0; border-top:1px solid rgba(255,253,249,0.14);}
-  .cinfo-row:last-child{border-bottom:1px solid rgba(255,253,249,0.14);}
+  .contact-info > p{color:rgba(255,255,255,0.7); margin-bottom:34px; line-height:1.6; max-width:440px;}
+  .cinfo-row{display:flex; gap:16px; padding:16px 0; border-top:1px solid rgba(255,255,255,0.14);}
+  .cinfo-row:last-child{border-bottom:1px solid rgba(255,255,255,0.14);}
   .cinfo-row .lbl{font-family:'JetBrains Mono',monospace; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--gold-light); width:110px; flex-shrink:0; padding-top:2px;}
   .cinfo-row .val{font-size:0.96rem; line-height:1.55;}
-  .cinfo-row a{border-bottom:1px solid rgba(255,253,249,0.3); transition:border-color .2s;}
+  .cinfo-row a{border-bottom:1px solid rgba(255,255,255,0.3); transition:border-color .2s;}
   .cinfo-row a:hover{border-color:var(--gold-light);}
   .whatsapp-cta{
     display:inline-flex; align-items:center; gap:10px;
@@ -570,15 +665,15 @@
     .manpower-grid-wrap{grid-template-columns:1fr;}
     .manpower-media img{height:260px;}
     .manpower-grid{grid-template-columns:1fr 1fr;}
-    .leader-wrap{grid-template-columns:1fr; text-align:center;}
-    .leader-photo{max-width:220px; margin:0 auto;}
-    .leader-wrap.text-only{text-align:left;}
+    .leader-stack{grid-template-columns:1fr;}
+    .leader-card{grid-template-columns:1fr; text-align:center; min-height:0; gap:24px; padding:30px;}
+    .leader-photo, .leader-mono{max-width:210px; margin:0 auto;}
+    .leader-card p{max-width:620px; margin-left:auto; margin-right:auto;}
     .clients-marquee{padding:26px 0;
       -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 5%,#000 95%,transparent 100%);
       mask-image:linear-gradient(90deg,transparent 0,#000 5%,#000 95%,transparent 100%);}
     .clients-set{gap:40px; padding-right:40px;}
     .clients-set span{font-size:1.07rem;}
-    .leader-wrap.text-only{padding:28px 26px 28px;}
   }
   .lang-toggle{
     display:inline-flex; align-items:center; gap:6px; flex-shrink:0;
@@ -587,11 +682,11 @@
     font-weight:700; font-size:.78rem; line-height:1; cursor:pointer; direction:ltr;
     transition:background .2s, color .2s, border-color .2s, transform .2s;
   }
-  .lang-toggle:hover{border-color:var(--gold); color:var(--crimson); transform:translateY(-1px);}
+  .lang-toggle:hover{border-color:var(--gold); color:var(--burgundy); transform:translateY(-1px);}
   .lang-toggle:focus-visible{outline:2px solid var(--gold); outline-offset:3px;}
   .lang-toggle .lt-sep{color:var(--ink-soft); font-weight:400;}
   .lang-toggle[aria-pressed="true"]{background:var(--ink); border-color:var(--ink); color:var(--white);}
-  .lang-toggle[aria-pressed="true"] .lt-en{color:rgba(255,253,249,.55);}
+  .lang-toggle[aria-pressed="true"] .lt-en{color:rgba(255,255,255,.55);}
   .lang-toggle[aria-pressed="true"] .lt-ar{color:var(--gold-light);}
 
   html[dir="rtl"]{direction:rtl;}
@@ -600,7 +695,7 @@
   html[dir="rtl"] .brand, html[dir="rtl"] .brand-text .en{direction:ltr;}
   html[dir="rtl"] .brand-text .ar{text-align:right;}
   html[dir="rtl"] .hero-content, html[dir="rtl"] .about-copy, html[dir="rtl"] .section-head,
-  html[dir="rtl"] .leader-wrap > div, html[dir="rtl"] .contact-info, html[dir="rtl"] .footer-row{text-align:right;}
+  html[dir="rtl"] .leader-body, html[dir="rtl"] .contact-info, html[dir="rtl"] .footer-row{text-align:right;}
   html[dir="rtl"] .eyebrow{text-align:right; direction:rtl;}
   html[dir="rtl"] .eyebrow::before{left:auto; right:0;}
   html[dir="rtl"] nav.links a::after{left:auto; right:0;}
@@ -608,8 +703,10 @@
   html[dir="rtl"] .about-media::after{left:auto; right:-18px;}
   html[dir="rtl"] .stat-cell .num, html[dir="rtl"] .stat-cell .lbl{text-align:center;}
   html[dir="rtl"] .manpower-sub{text-align:right;}
-  html[dir="rtl"] .leader-wrap.text-only::before{left:auto; right:0;}
-  html[dir="rtl"] .leader-rule{background:linear-gradient(270deg, var(--crimson), var(--gold));}
+  html[dir="rtl"] .leader-rule{background:linear-gradient(270deg, var(--burgundy), var(--gold));}
+  .section-head.center{text-align:center; margin-left:auto; margin-right:auto;}
+  html[dir="rtl"] .section-head.center, html[dir="rtl"] .vfilm-block,
+  html[dir="rtl"] .vfilm-cap{text-align:center;}
 
   html[dir="rtl"] .legacy-note{border-left:0; border-right:4px solid var(--gold);}
   html[dir="rtl"] .ongoing .loc, html[dir="rtl"] .ongoing h3, html[dir="rtl"] .ongoing .client,
@@ -622,10 +719,6 @@
   html[dir="rtl"] .footer-row{justify-content:space-between;}
 
   @media (max-width:920px){
-    html[dir="rtl"] .leader-wrap{grid-template-columns:1fr; text-align:center;}
-    html[dir="rtl"] .leader-wrap > div{text-align:center;}
-    html[dir="rtl"] .leader-wrap.text-only{text-align:right;}
-    html[dir="rtl"] .leader-wrap.text-only > div{text-align:right;}
   }
   @media (max-width:600px){
     .nav-cta{display:none !important;}
@@ -635,6 +728,15 @@
       mask-image:linear-gradient(90deg,transparent 0,#000 3%,#000 97%,transparent 100%);}
     .clients-set{gap:30px; padding-right:30px;}
     .clients-set span{font-size:1.02rem; height:32px;}
+    .vfilm-play{width:64px; height:64px;}
+    .vfilm-play svg{width:22px; height:22px;}
+    .vfilm-feature .vfilm-play{width:70px; height:70px;}
+    .vfilm-feature .vfilm-play svg{width:24px; height:24px;}
+    .vfilm-logo .vfilm-play{width:50px; height:50px;}
+    .vfilm-logo .vfilm-play svg{width:18px; height:18px;}
+    .vfilm-title-sm{font-size:1.05rem;}
+    .vfilm-block{margin-top:24px;}
+    .vfilm-section{padding:34px 0 40px;}
     .ongoing-grid{grid-template-columns:1fr;}
     .services-grid{grid-template-columns:1fr;}
     .project-grid{grid-template-columns:1fr;}
@@ -653,10 +755,10 @@
   <div class="wrap nav">
     <a href="#top" class="brand">
       <svg class="brand-mark" id="img-logo" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <circle cx="30" cy="30" r="14" stroke="#B81F2E" stroke-width="1.6"/>
-        <circle cx="22" cy="26" r="14" stroke="#A8863C" stroke-width="1.6"/>
-        <circle cx="38" cy="26" r="14" stroke="#241C15" stroke-width="1.6" stroke-opacity="0.55"/>
-        <circle cx="30" cy="38" r="14" stroke="#B81F2E" stroke-width="1.6" stroke-opacity="0.6"/>
+        <circle cx="30" cy="30" r="14" stroke="#6B0026" stroke-width="1.6"/>
+        <circle cx="22" cy="26" r="14" stroke="#C89B32" stroke-width="1.6"/>
+        <circle cx="38" cy="26" r="14" stroke="#111111" stroke-width="1.6" stroke-opacity="0.55"/>
+        <circle cx="30" cy="38" r="14" stroke="#970038" stroke-width="1.6" stroke-opacity="0.6"/>
       </svg>
       <span class="brand-text">
         <span class="en">NEXUS WORLD</span>
@@ -676,7 +778,7 @@
       <span class="lt-en">EN</span><span class="lt-sep">/</span><span class="lt-ar">عربي</span>
     </button>
     <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="#241C15" stroke-width="2" stroke-linecap="round"/></svg>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="#111111" stroke-width="2" stroke-linecap="round"/></svg>
     </button>
   </div>
   <div class="mobile-menu" id="mobileMenu">
@@ -697,14 +799,14 @@
     <div class="hero-diagonal"></div>
     <div class="wrap hero-grid">
       <div class="hero-content">
-        <span class="eyebrow">Civil Construction · Electromechanical · Manpower</span>
+        <span class="eyebrow">Precast · Civil Construction · Electromechanical · Manpower</span>
         <div class="hero-company">NEXUS WORLD COMPANY LIMITED</div>
         <p class="hero-keymsg">
           <span>Experience</span><span>Expertise</span><span>Execution</span><span>Excellence</span>
         </p>
         <h1>Building the Kingdom's<br>infrastructure, <em>engineered right</em>.</h1>
         <div class="hero-ar">شركة لجميع أنواع أعمال الإنشاءات المدنية والكهروميكانيكية</div>
-        <p class="lede">Nexus World Company Limited delivers general building, mechanical &amp; electrical works, and heavy equipment rental across the Eastern Province — led by a team with a decade-plus track record on hospital, industrial and residential projects for Saudi Arabia's biggest names.</p>
+        <p class="lede">Nexus World Company Limited delivers precast ready-made buildings, general building, mechanical &amp; electrical works, and heavy equipment rental across the Eastern Province — led by a team with a decade-plus track record on hospital, industrial and residential projects for Saudi Arabia's biggest names.</p>
         <div class="hero-actions">
           <a href="#contact" class="btn btn-primary">Request a Proposal</a>
           <a href="#projects" class="btn btn-ghost">See Our Track Record</a>
@@ -743,7 +845,7 @@
       <div class="about-copy">
         <span class="eyebrow">About Nexus World</span>
         <h2>A company built on a decade of hands-on delivery</h2>
-        <p>Nexus World Company Limited is a Saudi civil construction and electromechanical company based in the Eastern Province. We cover general building, M&amp;E works, heavy equipment rental and process instrumentation — backed by leadership that has personally delivered hospital, residential and industrial projects across Khobar, Dammam and Jubail.</p>
+        <p>Nexus World Company Limited is a Saudi civil construction and electromechanical company based in the Eastern Province. We cover precast ready-made buildings, general building, M&amp;E works, heavy equipment rental and process instrumentation — backed by leadership that has personally delivered hospital, residential and industrial projects across Khobar, Dammam and Jubail.</p>
         <p>We're built to work the way industrial and commercial clients expect: reliable scheduling, safety-first site management, and manpower that's already familiar with the standards of Saudi Arabia's major operators.</p>
         <ul class="about-list">
           <li>100% Saudi-based company serving the Eastern Province</li>
@@ -1025,6 +1127,26 @@
     </div>
   </section>
 
+  <!-- NEXUS WORLD IN ACTION -->
+  <section id="in-action">
+    <div class="wrap wrap-wide">
+      <div class="section-head center">
+        <span class="eyebrow">Site film</span>
+        <h2>NEXUS WORLD IN ACTION</h2>
+        <p>Experience. Expertise. Execution. Excellence.</p>
+      </div>
+      <figure class="vfilm vfilm-feature" data-video="assets/videos/nexus-world-in-action.mp4">
+        <div class="vfilm-frame">
+          <video preload="metadata" playsinline muted controls
+                 data-label-en="Nexus World in Action — site film"
+                 data-ar-label="نيكسس وورلد في الميدان — فيلم الموقع"
+                 aria-label="Nexus World in Action — site film"></video>
+          <button class="vfilm-play" type="button" data-label-en="Play video" data-ar-label="تشغيل الفيديو" aria-label="Play video"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5.5v13l11-6.5-11-6.5Z"/></svg></button>
+        </div>
+      </figure>
+    </div>
+  </section>
+
   <section id="clients" class="alt" style="padding-top:64px; padding-bottom:64px;">
     <div class="wrap">
       <div class="section-head" style="margin-bottom:32px;">
@@ -1074,6 +1196,20 @@
         </div>
       </div>
     </div>
+    <div class="wrap">
+      <div class="vfilm-block">
+        <h3 class="vfilm-title-sm">Our Workforce. Our Capability.</h3>
+        <figure class="vfilm" data-video="assets/videos/workforce-capability.mp4">
+          <div class="vfilm-frame">
+            <video preload="metadata" playsinline muted controls
+                   data-label-en="Our workforce on site — illustrative visualisation"
+                   data-ar-label="كوادرنا في الموقع — تمثيل توضيحي"
+                   aria-label="Our workforce on site — illustrative visualisation"></video>
+            <button class="vfilm-play" type="button" data-label-en="Play video" data-ar-label="تشغيل الفيديو" aria-label="Play video"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5.5v13l11-6.5-11-6.5Z"/></svg></button>
+          </div>
+        </figure>
+      </div>
+    </div>
   </section>
 
   <!-- LEADERSHIP -->
@@ -1084,43 +1220,63 @@
         <h2>Our Leadership</h2>
       </div>
       <div class="leader-stack">
-        <div class="leader-wrap text-only">
-          <div>
-            <div class="leader-name-en">Jamaludeen</div>
+        <article class="leader-card">
+          <div class="leader-mono" aria-hidden="true"><span>JM</span></div>
+          <div class="leader-body">
+            <h3 class="leader-name-en">Jamaludin</h3>
             <div class="leader-role">Managing Director</div>
             <span class="leader-rule" aria-hidden="true"></span>
           </div>
-        </div>
-        <div class="leader-wrap text-only">
-          <div>
-            <div class="leader-name-en">Shaleh Al-Qatani</div>
+        </article>
+        <article class="leader-card">
+          <div class="leader-photo img-ph" id="img-ceo"><span class="ph-file">assets/images/<br>ceo-saiful-islam.jpg</span></div>
+          <div class="leader-body">
+            <div class="leader-name-ar">سيف الإسلام</div>
+            <h3 class="leader-name-en">Saiful Islam Moni</h3>
+            <div class="leader-role">Chief Executive Officer (CEO)</div>
+            <span class="leader-rule" aria-hidden="true"></span>
+            <p>Founded Nexus World Company Limited, bringing strategic leadership to civil, mechanical and electrical project delivery across Saudi Arabia's industrial sector for SABIC, Saudi Aramco and the Royal Commission at Jubail.</p>
+          </div>
+        </article>
+        <article class="leader-card">
+          <div class="leader-mono" aria-hidden="true"><span>SA</span></div>
+          <div class="leader-body">
+            <h3 class="leader-name-en">Saleh Al-Qahtani</h3>
             <div class="leader-role">Executive Manager</div>
             <span class="leader-rule" aria-hidden="true"></span>
           </div>
-        </div>
-        <div class="leader-wrap">
-          <div class="leader-photo img-ph" id="img-ceo"><span class="ph-file">assets/images/<br>ceo-saiful-islam.jpg</span></div>
-          <div>
-            <div class="leader-name-ar">سيف الإسلام</div>
-            <div class="leader-name-en">Saiful Islam Moni</div>
-            <div class="leader-role">Chief Executive Officer (CEO)</div>
-            <p>Saiful Islam founded Nexus World Company Limited after a career leading operations for civil, mechanical and electrical projects across Saudi Arabia's industrial sector — including hospital, residential and petrochemical-adjacent developments for clients such as SABIC, Saudi Aramco and the Royal Commission at Jubail. He built Nexus World to bring that same standard of delivery to a new generation of clients.</p>
-          </div>
-        </div>
-        <div class="leader-wrap">
+        </article>
+        <article class="leader-card">
           <div class="leader-photo img-ph" id="img-cfo"><span class="ph-file">assets/images/<br>cfo-azam-ahamed.jpg</span></div>
-          <div>
+          <div class="leader-body">
             <div class="leader-name-ar">عزام أحمد</div>
-            <div class="leader-name-en">Azam Ahamed</div>
+            <h3 class="leader-name-en">Azam Ahamed</h3>
             <div class="leader-role">Chief Financial Officer (CFO)</div>
-            <p>Azam Ahamed joined Nexus World as Chief Financial Officer after a career managing budgets, tenders and contracts for civil, mechanical and electrical works across Saudi Arabia's industrial sector — including hospital, residential and petrochemical-adjacent developments for clients such as SABIC, Saudi Aramco and the Royal Commission at Jubail. He keeps Nexus World's commercial and financial discipline tight, so every delivery stays on time and on budget.</p>
+            <span class="leader-rule" aria-hidden="true"></span>
+            <p>Joined Nexus World as Chief Financial Officer, applying financial stewardship to budgets, tenders and contracts across civil and electromechanical works for SABIC, Saudi Aramco and the Royal Commission at Jubail.</p>
           </div>
-        </div>
+        </article>
       </div>
     </div>
   </section>
 
   <div class="ribbon"></div>
+
+  <!-- BRAND FILM — animated logo -->
+  <section id="brand-film" class="vfilm-section">
+    <div class="wrap">
+      <figure class="vfilm vfilm-logo" data-video="assets/videos/logo-animation.mp4">
+        <div class="vfilm-frame">
+          <video preload="metadata" playsinline muted controls loop
+                 data-label-en="Nexus World animated logo"
+                 data-ar-label="شعار نيكسس وورلد المتحرك"
+                 aria-label="Nexus World animated logo"></video>
+          <button class="vfilm-play" type="button" data-label-en="Play video" data-ar-label="تشغيل الفيديو" aria-label="Play video"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5.5v13l11-6.5-11-6.5Z"/></svg></button>
+        </div>
+        <figcaption class="vfilm-cap">Nexus World — animated brand mark</figcaption>
+      </figure>
+    </div>
+  </section>
 
   <!-- CONTACT -->
   <section id="contact">
@@ -1149,7 +1305,7 @@
             <span class="val">5D Business Park, Dammam–Jubail Express Way, Kingdom of Saudi Arabia</span>
           </div>
           <a class="whatsapp-cta" href="https://wa.me/966555197218" target="_blank" rel="noopener">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1s-.5-.1-.7.1-.8 1-1 1.2-.4.2-.7.1a8.2 8.2 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.4-.5c.1-.1.2-.3.3-.4a.6.6 0 0 0 0-.5c0-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5c0 1.5 1 2.9 1.2 3.1.1.2 2.2 3.3 5.3 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 1.9-1.3.2-.6.2-1.2.2-1.3-.1-.1-.3-.2-.5-.3z" fill="#241C15"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2z" stroke="#241C15" stroke-width="1.4"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1s-.5-.1-.7.1-.8 1-1 1.2-.4.2-.7.1a8.2 8.2 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.4-.5c.1-.1.2-.3.3-.4a.6.6 0 0 0 0-.5c0-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5c0 1.5 1 2.9 1.2 3.1.1.2 2.2 3.3 5.3 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 1.9-1.3.2-.6.2-1.2.2-1.3-.1-.1-.3-.2-.5-.3z" fill="#111111"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2z" stroke="#111111" stroke-width="1.4"/></svg>
             WhatsApp Us
           </a>
         </div>
@@ -1211,7 +1367,7 @@
     probe.onload = function () {
       if (entry.hero) {
         entry.el.style.backgroundImage =
-          "linear-gradient(100deg, rgba(20,15,10,.88) 0%, rgba(20,15,10,.72) 38%, rgba(20,15,10,.35) 62%, rgba(20,15,10,.15) 100%), url('" + entry.path + "')";
+          "linear-gradient(100deg, rgba(17,17,17,.88) 0%, rgba(17,17,17,.72) 38%, rgba(17,17,17,.35) 62%, rgba(17,17,17,.15) 100%), url('" + entry.path + "')";
         entry.el.style.backgroundSize = 'cover';
         entry.el.style.backgroundPosition = 'center';
       } else {
@@ -1338,7 +1494,7 @@
     if(!hero) return;
     function setBg(el, src){
       el.style.backgroundImage=
-        "linear-gradient(100deg, rgba(16,12,8,.88) 0%, rgba(16,12,8,.72) 38%, rgba(16,12,8,.35) 62%, rgba(16,12,8,.15) 100%), url('"+src+"')";
+        "linear-gradient(100deg, rgba(17,17,17,.88) 0%, rgba(17,17,17,.72) 38%, rgba(17,17,17,.35) 62%, rgba(17,17,17,.15) 100%), url('"+src+"')";
       el.style.backgroundSize='cover';
       el.style.backgroundPosition='center';
     }
@@ -1388,6 +1544,80 @@
     probe(1);
   })();
 
+  /* ============================================================
+     VIDEO SLOTS — lazy media loader.
+     The three slots above declare their file in data-video and carry NO
+     <source> child, so the browser downloads nothing until a slot comes
+     within 300px of the viewport (or is hovered/focused/clicked). At that
+     point preload="metadata" fetches only the header and first frame — the
+     clip's own opening image — not the whole file, and nothing is decoded
+     until play. Playback is never started automatically and every clip ships
+     muted, so no sound can play on its own. Native controls remain available
+     for play, pause, volume and full screen at any time.
+
+     Expected files — drop in and refresh, no code changes:
+       assets/videos/nexus-world-in-action.mp4
+       assets/videos/workforce-capability.mp4
+       assets/videos/logo-animation.mp4
+     ============================================================ */
+  (function videoSlots() {
+    var slots = document.querySelectorAll('.vfilm');
+    if (!slots.length) return;
+
+    slots.forEach(function (slot) {
+      var video = slot.querySelector('video');
+      var play = slot.querySelector('.vfilm-play');
+      var file = slot.getAttribute('data-video');
+      if (!video || !file) return;
+
+      var attached = false;
+      function attach() {
+        if (attached) return;
+        attached = true;
+        var source = document.createElement('source');
+        source.src = file;
+        source.type = 'video/mp4';
+        video.appendChild(source);
+        video.load();
+      }
+
+      /* first sign of intent attaches the media, even if it was never scrolled to */
+      slot.addEventListener('pointerenter', attach, { once: true });
+      slot.addEventListener('focusin', attach, { once: true });
+
+      if (play) {
+        play.addEventListener('click', function () {
+          attach();
+          if (video.paused) { var result = video.play(); if (result && result.catch) result.catch(function () {}); }
+          else video.pause();
+        });
+      }
+
+      video.addEventListener('play',  function () { slot.setAttribute('data-state', 'playing'); });
+      video.addEventListener('pause', function () { slot.setAttribute('data-state', 'paused'); });
+      video.addEventListener('ended', function () { slot.setAttribute('data-state', 'paused'); });
+
+      if ('IntersectionObserver' in window) {
+        var seen = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) attach();
+            else if (!video.paused) video.pause();   /* never play unseen off screen */
+          });
+        }, { rootMargin: '300px 0px', threshold: 0.01 });
+        seen.observe(slot);
+      } else {
+        var pending = function () {
+          if (slot.getBoundingClientRect().top < window.innerHeight + 300) {
+            attach();
+            window.removeEventListener('scroll', pending);
+          }
+        };
+        window.addEventListener('scroll', pending, { passive: true });
+        window.addEventListener('resize', pending, { passive: true });
+      }
+    });
+  })();
+
   const menuBtn = document.getElementById('menuBtn');
   const mobileMenu = document.getElementById('mobileMenu');
   menuBtn.addEventListener('click', () => {
@@ -1423,11 +1653,11 @@
     addAll('nav.links a', ['الرئيسية', 'من نحن', 'خدماتنا', 'مشاريعنا', 'عملاؤنا', 'اتصل بنا']);
     addAll('.mobile-menu a', ['الرئيسية', 'من نحن', 'خدماتنا', 'مشاريعنا', 'عملاؤنا', 'اتصل بنا']);
     add('.nav-cta', 'اطلب عرض سعر');
-    add('.hero .eyebrow', 'إنشاءات مدنية · كهروميكانيكية · أيدٍ عاملة');
+    add('.hero .eyebrow', 'مسبقة الصب · إنشاءات مدنية · كهروميكانيكية · أيدٍ عاملة');
     add('.hero-company', 'شركة نيكسس وورلد المحدودة');
     addAll('.hero-keymsg span', ['خبرة', 'اختصاص', 'تنفيذ', 'تميز']);
     add('.hero h1', 'نُشيّد بنية المملكة<br>التحتية، <em>بإتقانٍ هندسي</em>.');
-    add('.hero p.lede', 'تتولّى شركة نيكسس وورلد المحدودة أعمال البناء العام والأعمال الميكانيكية والكهربائية وتأجير المعدات الثقيلة في المنطقة الشرقية — بقيادة فريق يمتلك سجلاً يمتد لأكثر من عقد في مشاريع المستشفيات والمنشآت الصناعية والسكنية لدى أكبر الشركات في الممكلة.');
+    add('.hero p.lede', 'تتولّى شركة نيكسس وورلد المحدودة أعمال المباني الجاهزة والمسبقة الصب والبناء العام والأعمال الميكانيكية والكهربائية وتأجير المعدات الثقيلة في المنطقة الشرقية — بقيادة فريق يمتلك سجلاً يمتد لأكثر من عقد في مشاريع المستشفيات والمنشآت الصناعية والسكنية لدى أكبر الشركات في الممكلة.');
     add('.hero-actions .btn-primary', 'اطلب عرضاً مقترحاً');
     add('.hero-actions .btn-ghost', 'شاهد سجلنا');
     add('.stats-head .eyebrow', 'إحصائيات الشركة');
@@ -1437,7 +1667,7 @@
     add('.about-copy .eyebrow', 'عن نيكسس وورلد');
     add('.about-copy h2', 'شركة بُنيت على عقدٍ من التسليم العملي');
     addAll('.about-copy > p', [
-      'شركة نيكسس وورلد المحدودة شركة سعودية للإنشاءات المدنية والأعمال الكهروميكانيكية مقرّها المنطقة الشرقية. نغطّي البناء العام وأعمال M&amp;E وتأجير المعدات الثقيلة وأجهزة القياس والتحكم — تقودها قيادة ذات خبرة مباشرة في تنفيذ مشاريع طبية وسكنية وصناعية عبر الخبر والدمام والجبيل.',
+      'شركة نيكسس وورلد المحدودة شركة سعودية للإنشاءات المدنية والأعمال الكهروميكانيكية مقرّها المنطقة الشرقية. نغطّي المباني الجاهزة والمسبقة الصب والبناء العام وأعمال M&amp;E وتأجير المعدات الثقيلة وأجهزة القياس والتحكم — تقودها قيادة ذات خبرة مباشرة في تنفيذ مشاريع طبية وسكنية وصناعية عبر الخبر والدمام والجبيل.',
       'نحن مصممون لتلبية احتياجات العملاء الصناعيين والتجاريين وفق أعلى المعايير: جدولة زمنية موثوقة، إدارة مواقع ترتكز على السلامة، وكوادر بشرية على دراية تامة بمعايير لدى أبرز الجهات المشغلة في المملكة العربية السعودية.'
     ]);
     addAll('.about-list li', [
@@ -1521,6 +1751,10 @@
       'عميل مسح الأخصائي · مجتمع الوسط'
     ]);
 
+    add('#in-action .section-head .eyebrow', 'فيلم الموقع');
+    add('#in-action .section-head h2', 'نيكسس وورلد في الميدان');
+    add('#in-action .section-head p', 'خبرة. اختصاص. تنفيذ. تميز.');
+
     add('#clients .section-head .eyebrow', 'سجل التعامل مع');
     add('#clients .section-head h2', 'موثوقون لدى كبرى الأسماء في المنطقة');
 
@@ -1534,13 +1768,17 @@
       'الكهربائيون الصناعيون', 'عمال التوصيلات الكهربائية والتركيبات', 'فنيو التكييف والتهوية', 'عمال التصنيع واللحام'
     ]);
 
+    add('.vfilm-title-sm', 'كوادرنا. قدرتنا.');
+
     add('#leadership .section-head .eyebrow', 'القيادة');
     add('#leadership .section-head h2', 'قيادتنا');
-    addAll('.leader-role', ['المدير العام', 'المدير التنفيذي', 'الرئيس التنفيذي (CEO)', 'المدير المالي (CFO)']);
-    addAll('.leader-wrap p', [
-      'أسّس سيف الإسلام شركة نيكسس وورلد المحدودة بعد مسيرة قاد فيها عمليات مشاريع مدنية وميكانيكية وكهربائية في القطاع الصناعي السعودي — بما في ذلك مشاريع طبية وسكنية وتطويرات مرتبطة بالقطاع البتروكيماوي لعملاء مثل سابك وأرامكو والهيئة الملكية في الجبيل. وقد أسس نيكسس وورلد ليقدم نفس مستوى الجودة في التنفيذ لجيل جديد من العملاء.',
-      'انضم عزام أحمد إلى نيكسس وورلد بمنصب المدير المالي بعد مسيرة مهنية في إدارة الميزانيات والمناقصات والعقود لأعمال مدنية وميكانيكية وكهربائية عبر القطاع الصناعي في المملكة العربية السعودية — بما في ذلك مشاريع طبية وسكنية وتطويرات مرتبطة بالقطاع البتروكيماوي لعملاء مثل سابك وأرامكو السعودية والهيئة الملكية في الجبيل. ويحرص على انضباط الأداء التجاري والمالي في نيكسس وورلد، بما يضمن تسليم كل مشروع في الوقت المحدد وضمن الميزانية المعتمدة.'
+    addAll('.leader-role', ['المدير العام', 'الرئيس التنفيذي (CEO)', 'المدير التنفيذي', 'المدير المالي (CFO)']);
+    addAll('.leader-card p', [
+      'أسّس سيف الإسلام شركة نيكسس وورلد المحدودة، بقيادة استراتيجية لتوصيل المشاريع المدنية والميكانيكية والكهربائية في القطاع الصناعي السعودي لعملاء مثل سابك وأرامكو والهيئة الملكية في الجبيل.',
+      'انضم عزام أحمد إلى نيكسس وورلد بمنصب المدير المالي، مطبّقاً الحوكمة المالية على الميزانيات والمناقصات والعقود في الأعمال المدنية والكهربائية لعملاء مثل سابك وأرامكو والهيئة الملكية في الجبيل.'
     ]);
+
+    add('.vfilm-cap', 'نيكسس وورلد — الشعار المتحرك');
 
     add('#contact .section-head .eyebrow', 'تواصل معنا');
     add('#contact .section-head h2', 'ابدأ مشروعك مع نيكسس وورلد');
@@ -1568,6 +1806,9 @@
       }
       toggle && toggle.setAttribute('aria-pressed', arabic ? 'true' : 'false');
       document.querySelectorAll('.slide-dots button').forEach((button, index) => button.setAttribute('aria-label', arabic ? 'الشريحة ' + (index + 1) : 'Slide ' + (index + 1)));
+      document.querySelectorAll('[data-label-en]').forEach((element) => {
+        element.setAttribute('aria-label', arabic ? element.getAttribute('data-ar-label') : element.getAttribute('data-label-en'));
+      });
     };
 
     const applyLanguage = (arabic) => {
