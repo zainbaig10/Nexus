@@ -77,7 +77,7 @@
 
      assets/images/
        logo2.jpg                   (brand mark, header)
-       nexus-home.jpg              (hero right panel, 1600x900, 16:9 shown whole)
+       nexus-hero-cutout.png       (hero right-side figures, transparent PNG; cut from nexus-home-removebg.png)
        nexus-about.jpg             (About section, 1448x1086)
        ceo-saiful-islam.jpg        (CEO headshot, 4:5 crop)
        cfo-azam-ahamed.jpg         (CFO headshot, 4:5 crop)
@@ -224,21 +224,40 @@
     width:10px; height:10px; padding:0; border:1.5px solid rgba(255,255,255,.55); background:transparent; border-radius:50%; cursor:pointer; transition:background .2s, transform .2s;
   }
   .slide-dots button.active{ background:var(--gold-light); border-color:var(--gold-light); transform:scale(1.18); }
-  /* Right-hand image panel. The box is locked to the photo's own 16:9 ratio, so
-     the picture is shown whole — never cropped, never letterboxed. The width
-     gives way to calc(100% - 820px) as the viewport narrows, which keeps the
-     panel clear of the 640px text column instead of sliding underneath it.
-     A 240px floor stops it collapsing to a sliver; below 1024px the responsive
-     block moves it under the text entirely. */
-  .hero-photo{
-    position:absolute; top:calc(50% - 25px); right:0; transform:translateY(-50%); z-index:1;
-    width:max(240px, min(44%, calc(100% - 820px)));
-    aspect-ratio:16/9;
-    background:linear-gradient(160deg, var(--burgundy) 0%, var(--burgundy-deep) 55%, var(--gold) 100%);
-    background-size:cover; background-position:center; background-repeat:no-repeat;
-    border:1px solid rgba(200,155,50,.28);
-    box-shadow:0 22px 56px rgba(0,0,0,.36);
+  /* Right-side subject cutout. The PNG's own background is already transparent,
+     so the figures stand directly on the hero's burgundy — no box, no fill, no
+     border, no frame. drop-shadow traces the alpha silhouette, so the depth
+     follows the people and the flag rather than a rectangle. The offset is cast
+     left and down; because the figure now meets the hero floor the downward part
+     of the shadow is cut by .hero's overflow, which is correct — there is no
+     ground plane below a mid-body cut, so a shadow pooling under it would read
+     as a floating slab.
+
+     The source photograph is cut off mid-body, so the lower edge sits exactly on
+     the hero floor: raising the figures also raises that cut, and meeting the
+     floor keeps the line coincident with the section boundary instead of
+     floating above it. The +35px of width supplies the rest of the rise (56px
+     from the bottom change + ~24px from the taller figure = ~80px), and because
+     the figure is right-anchored that same growth is what carries it ~35px
+     further left toward the centre. The 305px floor replaces the old 340px one so
+     the grown figure still clears the 640px text column at narrow widths.
+
+     Measured against the real text column (.wrap is 1180px centred and
+     .hero-grid overrides its padding, so text starts flush at (W-1180)/2 and
+     ends 640px later): clearance is positive at every width, tightest at 1380px
+     with +25px to the box edge and +21px to the first opaque pixel. The faint
+     outer tail of the -16px shadow reaches ~29px, so it grazes that last sliver
+     of the column at 1366-1440px without touching a glyph. */
+  .hero-figures{
+    position:absolute; right:0; bottom:0; z-index:1;
+    width:calc(max(305px, min(42%, calc(100% - 800px))) + 35px);
+    height:auto; opacity:0; transition:opacity .45s ease;
+    filter:
+      drop-shadow(-16px 24px 26px rgba(0,0,0,.32))
+      drop-shadow(0 3px 7px rgba(0,0,0,.24));
+    pointer-events:none;
   }
+  .hero-figures.is-loaded{opacity:1}
   .hero-grid{
     position:relative; z-index:2;
     width:100%;
@@ -365,6 +384,15 @@
   }
   .about-copy p{color:var(--ink-soft); font-size:1.02rem; line-height:1.75; margin-bottom:18px;}
   .about-copy p:last-child{margin-bottom:0;}
+  .about-sub{
+    font-family:'Cairo',sans-serif; font-weight:800; font-size:1.12rem; line-height:1.3;
+    color:var(--burgundy); margin:26px 0 0;
+  }
+  .about-sub::after{
+    content:""; display:block; width:56px; height:3px; margin-top:12px;
+    background:linear-gradient(90deg, var(--burgundy), var(--gold));
+  }
+  .about-sub + .about-list{margin-top:22px;}
   .about-list{list-style:none; margin-top:28px; display:grid; gap:14px;}
   .about-list li{display:flex; gap:12px; align-items:flex-start; font-size:0.95rem; color:var(--ink);}
   .about-list li::before{content:"";width:8px; height:8px; border-radius:50%; background:var(--burgundy); margin-top:7px; flex-shrink:0;}
@@ -767,22 +795,26 @@
   html[dir="rtl"] .eyebrow{text-align:right; direction:rtl;}
   html[dir="rtl"] .eyebrow::before{left:auto; right:0;}
   html[dir="rtl"] nav.links a::after{left:auto; right:0;}
-  html[dir="rtl"] .hero-photo{left:0; right:auto; transform:translateY(-50%);}
+  html[dir="rtl"] .hero-figures{left:0; right:auto;}
 
   /* Below 1024px the text fills the full width, so there is no room beside it.
-     The photo drops into flow as a centred 16:9 band under the text. */
+     The cutout drops into flow as a centred band under the text; bottom:0 keeps
+     its hard lower edge on the same line it uses on desktop, and the fixed
+     min()/max() width replaces the desktop calc() so the +35px growth that
+     produces the 80px rise on desktop can't push it wider than the column. */
   @media (max-width:1024px){
     .hero{flex-direction:column; align-items:stretch; justify-content:center; gap:40px;}
     .hero-grid{order:1; width:100%;}
-    .hero-photo, html[dir="rtl"] .hero-photo{
-      order:2; position:relative; inset:auto; transform:none;
-      width:min(calc(100% - 48px), 480px); align-self:center; flex:none;
+    .hero-figures, html[dir="rtl"] .hero-figures{
+      order:2; position:relative; top:auto; left:auto; right:auto; bottom:0;
+      width:min(calc(100% - 48px), 460px); align-self:center; flex:none;
     }
   }
   html[dir="rtl"] .about-media::after{left:auto; right:-18px;}
   html[dir="rtl"] .stat-cell .num, html[dir="rtl"] .stat-cell .lbl{text-align:center;}
   html[dir="rtl"] .manpower-sub{text-align:right;}
   html[dir="rtl"] .leader-rule{background:linear-gradient(270deg, var(--burgundy), var(--gold));}
+  html[dir="rtl"] .about-sub::after{background:linear-gradient(270deg, var(--burgundy), var(--gold));}
   .section-head.center{text-align:center; margin-left:auto; margin-right:auto;}
   html[dir="rtl"] .section-head.center, html[dir="rtl"] .vfilm-block,
   html[dir="rtl"] .vfilm-cap{text-align:center;}
@@ -875,7 +907,7 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-bg" id="img-hero" role="img" aria-label="Construction site with cranes at sunset"></div>
-    <div class="hero-photo" id="img-hero-side" role="img" aria-label="Nexus World Company Limited"></div>
+    <img class="hero-figures" id="img-hero-side" alt="" decoding="async">
     <div class="wrap hero-grid">
       <div class="hero-content">
         <span class="eyebrow">Precast · Civil Construction · Electromechanical · Manpower</span>
@@ -923,13 +955,17 @@
       </div>
       <div class="about-copy">
         <span class="eyebrow">About Nexus World</span>
-        <h2>A company built on a decade of hands-on delivery</h2>
-        <p>Nexus World Company Limited is a Saudi civil construction and electromechanical company based in the Eastern Province. We cover precast ready-made buildings, general building, M&amp;E works, heavy equipment rental and process instrumentation — backed by leadership that has personally delivered hospital, residential and industrial projects across Khobar, Dammam and Jubail.</p>
-        <p>We're built to work the way industrial and commercial clients expect: reliable scheduling, safety-first site management, and manpower that's already familiar with the standards of Saudi Arabia's major operators.</p>
+        <h2>Built on Experience. Driven by Delivery.</h2>
+        <p>Nexus World Company Limited is a Saudi-based construction and electromechanical services company headquartered in the Eastern Province, delivering reliable solutions across precast construction, civil works, electromechanical services, process instrumentation, manpower, and heavy equipment rental.</p>
+        <p>With 20+ years of industry experience, our leadership brings hands-on expertise across residential, healthcare, industrial, infrastructure, and commercial developments throughout the Kingdom. Our approach combines disciplined project execution, technical capability, safety leadership, and a strong understanding of the standards and requirements of major Saudi operators.</p>
+        <p>We are structured to support projects from initial construction and civil works through electromechanical installation, instrumentation, commissioning, and completion, providing clients with an integrated and dependable delivery capability.</p>
+        <h3 class="about-sub">Our Corporate Strength</h3>
         <ul class="about-list">
-          <li>100% Saudi-based company serving the Eastern Province</li>
-          <li>Leadership experienced with SABIC, Saudi Aramco &amp; Royal Commission-grade standards</li>
-          <li>Full-scope delivery from foundation to instrumentation commissioning</li>
+          <li>Saudi-based operations with strong presence across the Kingdom</li>
+          <li>20+ years of industry experience and hands-on project leadership</li>
+          <li>Experience aligned with the requirements of Saudi Aramco, SABIC and Royal Commission environments</li>
+          <li>Integrated capabilities across Civil, Precast, MEP, Instrumentation, Manpower and Equipment Rental</li>
+          <li>Commitment to Safety, Quality, Schedule and Delivery Excellence</li>
         </ul>
       </div>
     </div>
@@ -1418,8 +1454,8 @@
      dashed placeholder stays visible.
   ============================================================ */
   const ASSET_SWAP = [
-    { el: document.getElementById('img-hero-side'), path: 'assets/images/nexus-home.jpg',               hero: true,   position: 'center',
-      scrim: 'linear-gradient(100deg, rgba(107,0,38,.34) 0%, rgba(107,0,38,.13) 38%, rgba(200,155,50,.16) 100%)' },
+    { el: document.getElementById('img-hero-side'), path: 'assets/images/nexus-hero-cutout.png',       cutout: true,
+      alt: 'Two company representatives holding the Nexus World flag' },
     { el: document.getElementById('img-about'),      path: 'assets/images/nexus-about.jpg',                             fit: 'contain', alt: 'Nexus World Company Limited' },
     { el: document.getElementById('img-project-1'),  path: 'assets/images/project-royal-commission.jpg',                  alt: 'Royal Commission project complex' },
     { el: document.getElementById('img-project-2'),  path: 'assets/images/project-al-majd-square.jpg',                    alt: 'Al-Majd Square compound' },
@@ -1446,6 +1482,12 @@
     if (!entry.el) return;
     const probe = new Image();
     probe.onload = function () {
+      if (entry.cutout) {
+        entry.el.src = entry.path;
+        if (entry.alt) entry.el.alt = entry.alt;
+        entry.el.classList.add('is-loaded');
+        return;
+      }
       if (entry.hero) {
         const scrim = entry.scrim ||
           'linear-gradient(100deg, rgba(17,17,17,.88) 0%, rgba(17,17,17,.72) 38%, rgba(17,17,17,.35) 62%, rgba(17,17,17,.15) 100%)';
@@ -1747,15 +1789,19 @@
     addAll('.stat-cell .lbl', ['مشروع منجز بنجاح', 'ساعة عمل آمنة', 'سنوات من الخبرة القيادية', 'دور وظيفي للكوادر', 'مشاريع رائدة', 'خدمات أساسية']);
 
     add('.about-copy .eyebrow', 'عن نيكسس وورلد');
-    add('.about-copy h2', 'شركة بُنيت على عقدٍ من التسليم العملي');
+    add('.about-copy h2', 'نستند إلى الخبرة. ويقودنا التسليم.');
+    add('.about-sub', 'قوتنا المؤسسية');
     addAll('.about-copy > p', [
-      'شركة نيكسس وورلد المحدودة شركة سعودية للإنشاءات المدنية والأعمال الكهروميكانيكية مقرّها المنطقة الشرقية. نغطّي المباني الجاهزة والمسبقة الصب والبناء العام وأعمال M&amp;E وتأجير المعدات الثقيلة وأجهزة القياس والتحكم — تقودها قيادة ذات خبرة مباشرة في تنفيذ مشاريع طبية وسكنية وصناعية عبر الخبر والدمام والجبيل.',
-      'نحن مصممون لتلبية احتياجات العملاء الصناعيين والتجاريين وفق أعلى المعايير: جدولة زمنية موثوقة، إدارة مواقع ترتكز على السلامة، وكوادر بشرية على دراية تامة بمعايير لدى أبرز الجهات المشغلة في المملكة العربية السعودية.'
+      'شركة نيكسس وورلد المحدودة شركة سعودية للخدمات الإنشائية والكهروميكانيكية مقرّها المنطقة الشرقية، تقدّم حلولاً موثوقة تشمل الإنشاءات المسبقة الصب والأعمال المدنية والخدمات الكهروميكانيكية وأجهزة القياس والتحكم وتوريد الكوادر البشرية وتأجير المعدات الثقيلة.',
+      'بخبرة تتجاوز عشرين عاماً في القطاع، تضفي قيادتنا خبرةً عملية في المشاريع السكنية والصحية والصناعية والبنية التحتية والتجارية في مختلف أنحاء المملكة. ويجمع نهجنا بين الانضباط في تنفيذ المشاريع والقدرات الفنية وقيادة السلامة وفهمٍ عميق لمعايير ومتطلبات أبرز المشغّلين في المملكة.',
+      'نحن منظمون لدعم المشاريع منذ مرحلة الإنشاءات والأعمال المدنية الأولية، وصولاً إلى التركيبات الكهروميكانيكية وأجهزة القياس والتحكم والتشغيل والتسليم النهائي، بما يمنح عملاءنا قدرةً متكاملة وموثوقة على التسليم.'
     ]);
     addAll('.about-list li', [
-      'شركة سعودية 100% تخدم المنطقة الشرقية',
-      'قيادة بخبرة في معايير SABIC وSaudi Aramco والهيئة الملكية',
-      'تنفيذ متكامل للمشاريع، من مرحلة الأساسات وحتى تشغيل أنظمة القياس والتحكم'
+      'عمليات سعودية بوجود قوي في مختلف أنحاء المملكة',
+      'أكثر من 20 عاماً من الخبرة القطاعية وقيادة عملية للمشاريع',
+      'خبرة متوائمة مع متطلبات بيئات أرامكو السعودية وسابك والهيئة الملكية',
+      'قدرات متكاملة في الإنشاءات المدنية والمسبقة الصب وMEP وأجهزة القياس والتحكم والكوادر البشرية وتأجير المعدات',
+      'التزام بالسلامة والجودة والجدول الزمني والتميز في التسليم'
     ]);
 
     add('#services .section-head .eyebrow', 'ماذا نقدم');
