@@ -15,7 +15,7 @@
 <meta property="og:url" content="https://nexusworldksa.com/">
 <meta property="og:title" content="Nexus World Company Limited — Civil Construction &amp; Electromechanical">
 <meta property="og:description" content="Experience. Expertise. Execution. Excellence. Precast ready-made buildings, civil construction, mechanical and electrical works, manpower, equipment rental, start-up and maintenance, and process instrumentation in Saudi Arabia.">
-<meta property="og:image" content="https://nexusworldksa.com/assets/images/about-nexus-board.jpg">
+<meta property="og:image" content="https://nexusworldksa.com/assets/images/nexus-about.jpg">
 <meta property="og:image:alt" content="Nexus World Company Limited project site in the Kingdom of Saudi Arabia">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Nexus World Company Limited — Civil Construction &amp; Electromechanical">
@@ -30,7 +30,7 @@
   "url": "https://nexusworldksa.com/",
   "email": "info@nexusworldksa.com",
   "telephone": ["+966555197218", "+966540703827"],
-  "image": "https://nexusworldksa.com/assets/images/about-nexus-board.jpg",
+  "image": "https://nexusworldksa.com/assets/images/nexus-about.jpg",
   "description": "Nexus World Company Limited is a Saudi construction and electromechanical company in the Eastern Province, delivering precast ready-made buildings, civil construction, mechanical and electrical works, manpower services, heavy equipment rental, start-up and maintenance, and process instrumentation and integration.",
   "slogan": "Experience. Expertise. Execution. Excellence.",
   "address": {
@@ -77,7 +77,7 @@
 
      assets/images/
        logo2.jpg                   (brand mark, header)
-       about-nexus-board.jpg       (About section, 1536x1024)
+       nexus-about.jpg             (About section, 1448x1086)
        ceo-saiful-islam.jpg        (CEO headshot, 4:5 crop)
        cfo-azam-ahamed.jpg         (CFO headshot, 4:5 crop)
        project-royal-commission.jpg   (completed project 01)
@@ -86,7 +86,7 @@
        project-sinamar.jpg            (completed project 04)
        project-al-salam-hospital.jpg  (completed project 05)
        project-iskan-hakimiyeh.jpg    (completed project 06)
-       manpower-team.jpg              (workforce section, 4:5 crop)
+       nexus-Technical-manpower-supply.jpg   (workforce section, 4:3 source fitted whole)
 
      Key Ongoing Projects — one file per card. Drop any of these and
      the branded card becomes a photo card automatically; leave a file
@@ -267,12 +267,43 @@
   .btn-ghost{border:1.5px solid rgba(255,255,255,0.6); color:var(--white);}
   .btn-ghost:hover{background:rgba(255,255,255,0.12); transform:translateY(-2px);}
 
+  .hero .eyebrow{font-size:0.84rem; letter-spacing:0.10em; gap:11px;}
+  .hero .eyebrow::before{width:30px; height:3px;}
   .hero-company{
     font-family:'Cairo',sans-serif; font-weight:900;
-    font-size:clamp(1.75rem,4.6vw,3.5rem);
-    line-height:1.08; letter-spacing:0.005em; color:var(--white);
-    margin-bottom:16px; max-width:17ch; text-transform:uppercase;
-    text-shadow:0 2px 24px rgba(0,0,0,.52);
+    font-size:clamp(1.9rem,6vw,4.5rem);
+    line-height:1.08; letter-spacing:0.005em; color:var(--cream);
+    margin-bottom:16px; max-width:20ch; text-transform:uppercase;
+    text-shadow:
+      0 1px 0 rgba(255,255,255,.60),
+      0 -1px 0 rgba(74,48,6,.34),
+      1px 0 0 rgba(74,48,6,.30),
+      0 2px 0 rgba(140,100,20,.50),
+      0 3px 0 rgba(124,88,16,.46),
+      0 4px 0 rgba(108,76,12,.42),
+      0 5px 1px rgba(92,64,8,.40),
+      0 6px 2px rgba(76,52,6,.38),
+      0 7px 3px rgba(60,40,4,.36),
+      0 8px 5px rgba(48,32,3,.34),
+      0 9px 7px rgba(36,24,2,.30),
+      0 14px 26px rgba(0,0,0,.55),
+      0 4px 30px rgba(0,0,0,.50);
+  }
+  html[dir="rtl"] .hero-company{
+    text-shadow:
+      0 1px 0 rgba(255,255,255,.60),
+      0 -1px 0 rgba(74,48,6,.34),
+      -1px 0 0 rgba(74,48,6,.30),
+      0 2px 0 rgba(140,100,20,.50),
+      0 3px 0 rgba(124,88,16,.46),
+      0 4px 0 rgba(108,76,12,.42),
+      0 5px 1px rgba(92,64,8,.40),
+      0 6px 2px rgba(76,52,6,.38),
+      0 7px 3px rgba(60,40,4,.36),
+      0 8px 5px rgba(48,32,3,.34),
+      0 9px 7px rgba(36,24,2,.30),
+      0 14px 26px rgba(0,0,0,.55),
+      0 4px 30px rgba(0,0,0,.50);
   }
   .hero-keymsg{
     display:flex; flex-wrap:wrap; gap:4px 14px; align-items:center;
@@ -316,7 +347,7 @@
   /* ---------- about ---------- */
   .about-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:56px; align-items:center;}
   .about-media{position:relative;}
-  .about-media img{border-radius:6px; width:100%; height:380px; object-fit:cover;}
+  .about-media img{border-radius:6px; width:100%; height:380px; object-fit:contain; background:var(--cream);}
   .about-media::after{
     content:""; position:absolute; bottom:-18px; left:-18px; width:130px; height:130px;
     background:linear-gradient(135deg, var(--gold) 0%, var(--burgundy) 100%);
@@ -443,7 +474,7 @@
 
   /* ---------- manpower ---------- */
   .manpower-grid-wrap{display:grid; grid-template-columns:0.85fr 1.15fr; gap:48px; align-items:center;}
-  .manpower-media img{border-radius:6px; width:100%; height:420px; object-fit:cover;}
+  .manpower-media img{border-radius:6px; width:100%; height:420px; object-fit:contain; background:var(--cream);}
   .manpower-media .mp-frame{flex-direction:column; padding:26px;}
   .manpower-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
   .mp-item{
@@ -454,17 +485,47 @@
   .mp-item::before{content:"";width:6px; height:6px; background:var(--burgundy); flex-shrink:0; border-radius:50%;}
 
   /* ---------- leadership ---------- */
-  /* One coordinated system: identical width, height, padding, border and type on all four.
-     Card height is driven by the portrait/monogram box, so every card is pixel-identical. */
-  .leader-stack{display:grid; grid-template-columns:repeat(2,1fr); gap:36px; align-items:stretch;}
+  /* Staggered, NOT a 2x2 equal grid. The two executives sit in a wider right
+     column and carry portrait + Arabic name + biography; the two supporting
+     leaders sit in a narrower left column as compact text-only cards. Because
+     the executives are far taller, align-items:start leaves deliberate negative
+     space under each compact card, and the line-art below fills that space.
+     Source order is Jamaludin, Saiful, Saleh, Azam — which is also the mobile
+     stacking order, so the i18n arrays stay in document order. */
+  .leader-stack{
+    position:relative;
+    display:grid; grid-template-columns:0.85fr 1.15fr; gap:38px 40px; align-items:start;
+  }
+  /* Blueprint grid: thin gold hairlines, visible only in the gaps and voids
+     (cards paint above it via z-index). Masked so it fades toward the edges. */
+  .leader-stack::before{
+    content:""; position:absolute; inset:-26px -20px; z-index:0; pointer-events:none;
+    background-image:
+      repeating-linear-gradient(0deg,  rgba(200,155,50,.20) 0 1px, transparent 1px 48px),
+      repeating-linear-gradient(90deg, rgba(200,155,50,.20) 0 1px, transparent 1px 48px);
+    -webkit-mask-image:radial-gradient(120% 100% at 16% 50%, #000 0 34%, rgba(0,0,0,.30) 60%, transparent 80%);
+    mask-image:radial-gradient(120% 100% at 16% 50%, #000 0 34%, rgba(0,0,0,.30) 60%, transparent 80%);
+  }
+  /* Faint plan ellipse with concentric rings + diagonal hatching, sitting in
+     the left-column negative space. Reads as an architectural drawing. */
+  .leader-stack::after{
+    content:""; position:absolute; z-index:0; pointer-events:none;
+    left:1%; top:5%; width:41%; height:90%;
+    border:1px solid rgba(107,0,38,.09); border-radius:50%;
+    box-shadow:
+      0 0 0 22px rgba(200,155,50,.05),
+      0 0 0 23px rgba(107,0,38,.05),
+      0 0 0 54px rgba(200,155,50,.04);
+    background-image:repeating-linear-gradient(48deg, rgba(107,0,38,.05) 0 1px, transparent 1px 26px);
+  }
   .manpower-sub{
     font-family:'JetBrains Mono',monospace; font-size:0.78rem; font-weight:600;
     letter-spacing:0.1em; text-transform:uppercase; color:var(--burgundy);
     margin-bottom:16px;
   }
   .leader-card{
-    display:grid; grid-template-columns:184px 1fr; gap:30px; align-items:center;
-    min-height:298px; padding:34px; position:relative; overflow:hidden;
+    display:grid; grid-template-columns:1fr; gap:30px; align-items:center;
+    min-height:0; padding:34px; position:relative; z-index:1; overflow:hidden;
     background:var(--white); border:1px solid var(--line); border-radius:6px;
   }
   /* subtle burgundy + gold bottom accent, identical on every card */
@@ -472,43 +533,41 @@
     content:""; position:absolute; bottom:0; left:0; width:100%; height:8px;
     background:linear-gradient(90deg, var(--burgundy) 0 62%, var(--gold) 62% 100%);
   }
-  /* shared portrait box — real photographs and monograms occupy exactly the same space */
-  .leader-photo, .leader-mono{
+  /* portrait box, executives only */
+  .leader-photo{
     width:100%; aspect-ratio:4/5; border-radius:6px; overflow:hidden;
-    display:flex; align-items:center; justify-content:center;
+    display:flex; align-items:center; justify-content:center; background:var(--cream);
   }
-  .leader-photo{background:var(--cream);}
   .leader-photo img{width:100%; height:100%; object-fit:cover; object-position:50% 20%; display:block;}
-  /* monogram for leaders without a photograph — burgundy field, gold initials */
-  .leader-mono{
-    border:1px solid var(--gold);
-    background:
-      repeating-linear-gradient(45deg, rgba(227,196,107,0.07) 0 8px, transparent 8px 16px),
-      linear-gradient(160deg, var(--burgundy) 0%, var(--burgundy-deep) 100%);
+
+  /* LARGE executive card — portrait + Arabic name + biography, top-aligned */
+  .leader-card--exec{grid-template-columns:200px 1fr; align-items:start; padding:32px 34px 38px;}
+
+  /* SMALL horizontal text-only card — no portrait, no monogram, one line */
+  .leader-card--compact{padding:28px 32px;}
+  .leader-card--compact .leader-body{
+    display:flex; align-items:center; flex-wrap:wrap; gap:9px 16px;
   }
-  .leader-mono span{
-    font-family:'Cairo',sans-serif; font-weight:900; font-size:3.1rem; line-height:1;
-    letter-spacing:0.06em; color:var(--gold-light);
-    text-shadow:0 2px 18px rgba(17,17,17,0.45);
+  .leader-card--compact .leader-name-en{font-size:1.28rem; margin:0; color:var(--ink);}
+  .leader-card--compact .leader-role{font-size:0.70rem; letter-spacing:0.12em; margin:0;}
+  .leader-card--compact .leader-rule{
+    flex:1 1 18px; min-width:18px; max-width:88px; height:2px; margin:0;
   }
   .leader-body{min-width:0;}
   .leader-name-ar{
-    font-family:'Cairo',sans-serif; direction:rtl; font-size:1.3rem; font-weight:700;
+    font-family:'Cairo',sans-serif; direction:rtl; font-size:1.6rem; font-weight:700;
     color:var(--burgundy); margin:0 0 2px;
   }
   .leader-name-en{
-    font-family:'Cairo',sans-serif; font-weight:800; font-size:1.45rem; line-height:1.2;
-    margin:0 0 6px; letter-spacing:-0.01em;
+    font-family:'Cairo',sans-serif; font-weight:800; font-size:1.7rem; line-height:1.2;
+    margin:0 0 4px; letter-spacing:-0.01em;
   }
   .leader-role{
-    font-family:'JetBrains Mono',monospace; font-size:0.72rem; text-transform:uppercase;
-    letter-spacing:0.1em; color:var(--burgundy); margin:0;
+    font-family:'JetBrains Mono',monospace; font-size:0.78rem; text-transform:uppercase;
+    letter-spacing:0.1em; color:var(--gold); margin:0 0 18px;
   }
   .leader-rule{display:block; width:64px; height:3px; margin-top:14px; background:linear-gradient(90deg, var(--burgundy), var(--gold));}
   .leader-card p{color:var(--ink-soft); font-size:0.9rem; line-height:1.62; margin:14px 0 0;}
-  .leader-name-ar{font-family:'Cairo',sans-serif; direction:rtl; font-size:1.6rem; font-weight:700; color:var(--burgundy); margin-bottom:2px;}
-  .leader-name-en{font-family:'Cairo',sans-serif; font-weight:800; font-size:1.7rem; margin-bottom:4px;}
-  .leader-role{font-family:'JetBrains Mono',monospace; font-size:0.78rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--gold); margin-bottom:18px;}
 
   /* ---------- video (drop-in media) ---------- */
   /* Three self-contained media slots. No <source> is declared in the markup —
@@ -665,10 +724,17 @@
     .manpower-grid-wrap{grid-template-columns:1fr;}
     .manpower-media img{height:260px;}
     .manpower-grid{grid-template-columns:1fr 1fr;}
-    .leader-stack{grid-template-columns:1fr;}
+    .leader-stack{grid-template-columns:1fr; gap:20px;}
+    .leader-stack::after{display:none;}
+    .leader-stack::before{inset:-14px -8px;}
     .leader-card{grid-template-columns:1fr; text-align:center; min-height:0; gap:24px; padding:30px;}
-    .leader-photo, .leader-mono{max-width:210px; margin:0 auto;}
+    .leader-card--exec{grid-template-columns:1fr; padding:28px 30px 34px;}
+    .leader-photo{max-width:210px; margin:0 auto;}
     .leader-card p{max-width:620px; margin-left:auto; margin-right:auto;}
+    .leader-card--compact{padding:22px 24px; text-align:left;}
+    .leader-card--compact .leader-body{justify-content:flex-start; gap:8px 14px;}
+    .leader-card--compact .leader-name-en{font-size:1.22rem;}
+    .leader-card--compact .leader-role{margin:0;}
     .clients-marquee{padding:26px 0;
       -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 5%,#000 95%,transparent 100%);
       mask-image:linear-gradient(90deg,transparent 0,#000 5%,#000 95%,transparent 100%);}
@@ -839,8 +905,8 @@
   <section id="about">
     <div class="wrap about-grid">
       <div class="about-media">
-        <!-- Board-supplied image (extracted from the Board Requirements document). -->
-        <div class="img-ph" id="img-about" style="height:380px; border-radius:6px;"><span>assets/images/<br>about-nexus-board.jpg</span></div>
+        <!-- 4:3 source — the box keeps its designed height, so the image is fitted whole, never cropped. -->
+        <div class="img-ph" id="img-about" style="height:380px; border-radius:6px;"><span>assets/images/<br>nexus-about.jpg</span></div>
       </div>
       <div class="about-copy">
         <span class="eyebrow">About Nexus World</span>
@@ -1172,7 +1238,7 @@
       <div class="manpower-media">
         <div class="img-ph mp-frame" id="img-manpower" style="height:420px; border-radius:6px;">
           <span class="ph-flag">Manpower image required</span>
-          <span class="ph-file">assets/images/manpower-team.jpg<br><br>Multinational construction workforce · professional PPE, hard hats and safety vests · realistic construction site · Saudi / GCC industrial context · premium corporate photography (no illustration)</span>
+          <span class="ph-file">assets/images/nexus-Technical-manpower-supply.jpg<br><br>Technical manpower supply</span>
         </div>
       </div>
       <div>
@@ -1220,40 +1286,38 @@
         <h2>Our Leadership</h2>
       </div>
       <div class="leader-stack">
-        <article class="leader-card">
-          <div class="leader-mono" aria-hidden="true"><span>JM</span></div>
+        <article class="leader-card leader-card--compact">
           <div class="leader-body">
             <h3 class="leader-name-en">Jamaludin</h3>
-            <div class="leader-role">Managing Director</div>
             <span class="leader-rule" aria-hidden="true"></span>
+            <div class="leader-role">Managing Director</div>
           </div>
         </article>
-        <article class="leader-card">
+        <article class="leader-card leader-card--exec">
           <div class="leader-photo img-ph" id="img-ceo"><span class="ph-file">assets/images/<br>ceo-saiful-islam.jpg</span></div>
           <div class="leader-body">
             <div class="leader-name-ar">سيف الإسلام</div>
-            <h3 class="leader-name-en">Saiful Islam Moni</h3>
+            <h3 class="leader-name-en">Saiful Islam</h3>
             <div class="leader-role">Chief Executive Officer (CEO)</div>
             <span class="leader-rule" aria-hidden="true"></span>
-            <p>Founded Nexus World Company Limited, bringing strategic leadership to civil, mechanical and electrical project delivery across Saudi Arabia's industrial sector for SABIC, Saudi Aramco and the Royal Commission at Jubail.</p>
+            <p>Founder and Chief Executive Officer of Nexus World Company Limited, provides strategic leadership across the company’s construction and project delivery operations. With a strong focus on operational excellence and sustainable growth, he has led the company’s involvement in civil, mechanical and electrical works for major clients and projects across Saudi Arabia, including SABIC, Saudi Aramco and the Royal Commission at Jubail</p>
           </div>
         </article>
-        <article class="leader-card">
-          <div class="leader-mono" aria-hidden="true"><span>SA</span></div>
+        <article class="leader-card leader-card--compact">
           <div class="leader-body">
             <h3 class="leader-name-en">Saleh Al-Qahtani</h3>
-            <div class="leader-role">Executive Manager</div>
             <span class="leader-rule" aria-hidden="true"></span>
+            <div class="leader-role">Executive Manager</div>
           </div>
         </article>
-        <article class="leader-card">
+        <article class="leader-card leader-card--exec">
           <div class="leader-photo img-ph" id="img-cfo"><span class="ph-file">assets/images/<br>cfo-azam-ahamed.jpg</span></div>
           <div class="leader-body">
             <div class="leader-name-ar">عزام أحمد</div>
             <h3 class="leader-name-en">Azam Ahamed</h3>
             <div class="leader-role">Chief Financial Officer (CFO)</div>
             <span class="leader-rule" aria-hidden="true"></span>
-            <p>Joined Nexus World as Chief Financial Officer, applying financial stewardship to budgets, tenders and contracts across civil and electromechanical works for SABIC, Saudi Aramco and the Royal Commission at Jubail.</p>
+            <p>Chief Financial Officer of Nexus World Company Limited, leads the company’s financial and commercial functions with a strong focus on financial governance, strategic planning and sustainable business performance. He oversees budgeting, cost management, commercial controls and financial planning, supporting disciplined decision-making and long-term value creation across the organization</p>
           </div>
         </article>
       </div>
@@ -1339,15 +1403,15 @@
      dashed placeholder stays visible.
   ============================================================ */
   const ASSET_SWAP = [
-    { el: document.getElementById('img-about'),      path: 'assets/images/about-nexus-board.jpg',                      alt: 'Nexus World Company Limited project site' },
+    { el: document.getElementById('img-about'),      path: 'assets/images/nexus-about.jpg',                             fit: 'contain', alt: 'Nexus World Company Limited' },
     { el: document.getElementById('img-project-1'),  path: 'assets/images/project-royal-commission.jpg',                  alt: 'Royal Commission project complex' },
     { el: document.getElementById('img-project-2'),  path: 'assets/images/project-al-majd-square.jpg',                    alt: 'Al-Majd Square compound' },
     { el: document.getElementById('img-project-3'),  path: 'assets/images/project-mowasat-parking.jpg',                   alt: 'Mowasat Hospital parking' },
     { el: document.getElementById('img-project-4'),  path: 'assets/images/project-sinamar.jpg',                           alt: 'Sinamar development' },
     { el: document.getElementById('img-project-5'),  path: 'assets/images/project-al-salam-hospital.jpg',                alt: 'Al-Salam Hospital' },
     { el: document.getElementById('img-project-6'),  path: 'assets/images/project-iskan-hakimiyeh.jpg',                   alt: 'Iskan Hakimiyeh development' },
-    { el: document.getElementById('img-manpower'),  path: 'assets/images/manpower-team.jpg',                      alt: 'Multinational construction workforce in PPE on site' },
-    { el: document.getElementById('img-ceo'),        path: 'assets/images/ceo-saiful-islam.jpg',                          alt: 'Saiful Islam Moni, Chief Executive Officer' },
+    { el: document.getElementById('img-manpower'),  path: 'assets/images/nexus-Technical-manpower-supply.jpg',         fit: 'contain', alt: 'Nexus World technical manpower supply' },
+    { el: document.getElementById('img-ceo'),        path: 'assets/images/ceo-saiful-islam.jpg',                          alt: 'Saiful Islam, Chief Executive Officer' },
     { el: document.getElementById('img-ongoing-1'), path: 'assets/images/ongoing-sasreef-jubail-housing.jpg', alt: 'Sasreef – Jubail Housing Project' },
     { el: document.getElementById('img-ongoing-2'), path: 'assets/images/ongoing-jubail-technical-university.jpg', alt: 'Jubail Technical University Project' },
     { el: document.getElementById('img-ongoing-3'), path: 'assets/images/ongoing-jeddah-accommodation.jpg', alt: 'Jeddah Residential Accommodation Project' },
@@ -1376,7 +1440,7 @@
         img.alt = entry.alt || '';
         img.loading = 'lazy';
         if (entry.el.classList.contains('thumb')) img.className = 'thumb';
-        img.style.cssText = 'width:100%; display:block; object-fit:cover; ' + (entry.el.getAttribute('style') || '');
+        img.style.cssText = 'width:100%; display:block; object-fit:' + (entry.fit || 'cover') + '; ' + (entry.el.getAttribute('style') || '');
         entry.el.replaceWith(img);
       }
     };
@@ -1774,8 +1838,8 @@
     add('#leadership .section-head h2', 'قيادتنا');
     addAll('.leader-role', ['المدير العام', 'الرئيس التنفيذي (CEO)', 'المدير التنفيذي', 'المدير المالي (CFO)']);
     addAll('.leader-card p', [
-      'أسّس سيف الإسلام شركة نيكسس وورلد المحدودة، بقيادة استراتيجية لتوصيل المشاريع المدنية والميكانيكية والكهربائية في القطاع الصناعي السعودي لعملاء مثل سابك وأرامكو والهيئة الملكية في الجبيل.',
-      'انضم عزام أحمد إلى نيكسس وورلد بمنصب المدير المالي، مطبّقاً الحوكمة المالية على الميزانيات والمناقصات والعقود في الأعمال المدنية والكهربائية لعملاء مثل سابك وأرامكو والهيئة الملكية في الجبيل.'
+      'المؤسس والرئيس التنفيذي لشركة نيكسس وورلد المحدودة، يتولى القيادة الاستراتيجية عبر عمليات الإنشاءات وتسليم المشاريع في الشركة. مع تركيز قوي على التميز التشغيلي والنمو المستدام، قاد مشاركة الشركة في الأعمال المدنية والميكانيكية والكهربائية لعملاء ومشاريع كبرى في المملكة العربية السعودية، ومنها سابك وأرامكو السعودية والهيئة الملكية في الجبيل.',
+      'المدير المالي لشركة نيكسس وورلد المحدودة، يقود الوظائف المالية والتجارية في الشركة مع تركيز قوي على الحوكمة المالية والتخطيط الاستراتيجي والأداء المستدام. يشرف على إعداد الميزانيات وإدارة التكاليف والضوابط التجارية والتخطيط المالي، بما في ذلك اتخاذ القرارات المنضبطة وصنع القيمة على المدى الطويل في الشركة.'
     ]);
 
     add('.vfilm-cap', 'نيكسس وورلد — الشعار المتحرك');
