@@ -77,6 +77,7 @@
 
      assets/images/
        logo2.jpg                   (brand mark, header)
+       nexus-home.jpg              (hero right panel, 1600x900, 16:9 shown whole)
        nexus-about.jpg             (About section, 1448x1086)
        ceo-saiful-islam.jpg        (CEO headshot, 4:5 crop)
        cfo-azam-ahamed.jpg         (CFO headshot, 4:5 crop)
@@ -223,11 +224,20 @@
     width:10px; height:10px; padding:0; border:1.5px solid rgba(255,255,255,.55); background:transparent; border-radius:50%; cursor:pointer; transition:background .2s, transform .2s;
   }
   .slide-dots button.active{ background:var(--gold-light); border-color:var(--gold-light); transform:scale(1.18); }
-  .hero-diagonal{
-    position:absolute; top:0; right:0; width:46%; height:100%; z-index:1;
+  /* Right-hand image panel. The box is locked to the photo's own 16:9 ratio, so
+     the picture is shown whole — never cropped, never letterboxed. The width
+     gives way to calc(100% - 820px) as the viewport narrows, which keeps the
+     panel clear of the 640px text column instead of sliding underneath it.
+     A 240px floor stops it collapsing to a sliver; below 1024px the responsive
+     block moves it under the text entirely. */
+  .hero-photo{
+    position:absolute; top:calc(50% - 25px); right:0; transform:translateY(-50%); z-index:1;
+    width:max(240px, min(44%, calc(100% - 820px)));
+    aspect-ratio:16/9;
     background:linear-gradient(160deg, var(--burgundy) 0%, var(--burgundy-deep) 55%, var(--gold) 100%);
-    clip-path:polygon(38% 0,100% 0,100% 100%,64% 100%);
-    opacity:0.92;
+    background-size:cover; background-position:center; background-repeat:no-repeat;
+    border:1px solid rgba(200,155,50,.28);
+    box-shadow:0 22px 56px rgba(0,0,0,.36);
   }
   .hero-grid{
     position:relative; z-index:2;
@@ -494,7 +504,7 @@
      stacking order, so the i18n arrays stay in document order. */
   .leader-stack{
     position:relative;
-    display:grid; grid-template-columns:0.85fr 1.15fr; gap:38px 40px; align-items:start;
+    display:grid; grid-template-columns:0.85fr 1.15fr; gap:38px 40px; align-items:stretch;
   }
   /* Blueprint grid: thin gold hairlines, visible only in the gaps and voids
      (cards paint above it via z-index). Masked so it fades toward the edges. */
@@ -505,18 +515,6 @@
       repeating-linear-gradient(90deg, rgba(200,155,50,.20) 0 1px, transparent 1px 48px);
     -webkit-mask-image:radial-gradient(120% 100% at 16% 50%, #000 0 34%, rgba(0,0,0,.30) 60%, transparent 80%);
     mask-image:radial-gradient(120% 100% at 16% 50%, #000 0 34%, rgba(0,0,0,.30) 60%, transparent 80%);
-  }
-  /* Faint plan ellipse with concentric rings + diagonal hatching, sitting in
-     the left-column negative space. Reads as an architectural drawing. */
-  .leader-stack::after{
-    content:""; position:absolute; z-index:0; pointer-events:none;
-    left:1%; top:5%; width:41%; height:90%;
-    border:1px solid rgba(107,0,38,.09); border-radius:50%;
-    box-shadow:
-      0 0 0 22px rgba(200,155,50,.05),
-      0 0 0 23px rgba(107,0,38,.05),
-      0 0 0 54px rgba(200,155,50,.04);
-    background-image:repeating-linear-gradient(48deg, rgba(107,0,38,.05) 0 1px, transparent 1px 26px);
   }
   .manpower-sub{
     font-family:'JetBrains Mono',monospace; font-size:0.78rem; font-weight:600;
@@ -544,15 +542,20 @@
   .leader-card--exec{grid-template-columns:200px 1fr; align-items:start; padding:32px 34px 38px;}
 
   /* SMALL horizontal text-only card — no portrait, no monogram, one line */
-  .leader-card--compact{padding:28px 32px;}
+  /* Text-only card: no portrait, no monogram. Padding mirrors the exec card and
+     the name steps up in size so the header carries the same visual weight as a
+     name sitting beside a photo. The body pushes the header to the top and the
+     bio to the bottom, so any slack in the row reads as breathing room. */
+  .leader-card--compact{padding:32px 34px 38px; align-items:stretch;}
   .leader-card--compact .leader-body{
-    display:flex; align-items:center; flex-wrap:wrap; gap:9px 16px;
+    display:flex; align-items:center; flex-wrap:wrap; align-content:space-between; gap:18px 16px;
   }
-  .leader-card--compact .leader-name-en{font-size:1.28rem; margin:0; color:var(--ink);}
+  .leader-card--compact .leader-name-en{font-size:1.55rem; margin:0; color:var(--ink);}
   .leader-card--compact .leader-role{font-size:0.70rem; letter-spacing:0.12em; margin:0;}
   .leader-card--compact .leader-rule{
     flex:1 1 18px; min-width:18px; max-width:88px; height:2px; margin:0;
   }
+  .leader-card--compact p{flex:1 0 100%; margin:0;}
   .leader-body{min-width:0;}
   .leader-name-ar{
     font-family:'Cairo',sans-serif; direction:rtl; font-size:1.6rem; font-weight:700;
@@ -716,7 +719,6 @@
   @media (max-width:920px){
     nav.links{display:none;}
     .menu-btn{display:block;}
-    .hero-diagonal{width:60%; clip-path:polygon(26% 0,100% 0,100% 100%,52% 100%);}
     .about-grid{grid-template-columns:1fr;}
     .about-media img{height:280px;}
     .services-grid{grid-template-columns:1fr 1fr;}
@@ -725,7 +727,6 @@
     .manpower-media img{height:260px;}
     .manpower-grid{grid-template-columns:1fr 1fr;}
     .leader-stack{grid-template-columns:1fr; gap:20px;}
-    .leader-stack::after{display:none;}
     .leader-stack::before{inset:-14px -8px;}
     .leader-card{grid-template-columns:1fr; text-align:center; min-height:0; gap:24px; padding:30px;}
     .leader-card--exec{grid-template-columns:1fr; padding:28px 30px 34px;}
@@ -735,6 +736,7 @@
     .leader-card--compact .leader-body{justify-content:flex-start; gap:8px 14px;}
     .leader-card--compact .leader-name-en{font-size:1.22rem;}
     .leader-card--compact .leader-role{margin:0;}
+    .leader-card--compact p{flex:1 0 100%; margin:0;}
     .clients-marquee{padding:26px 0;
       -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 5%,#000 95%,transparent 100%);
       mask-image:linear-gradient(90deg,transparent 0,#000 5%,#000 95%,transparent 100%);}
@@ -765,7 +767,18 @@
   html[dir="rtl"] .eyebrow{text-align:right; direction:rtl;}
   html[dir="rtl"] .eyebrow::before{left:auto; right:0;}
   html[dir="rtl"] nav.links a::after{left:auto; right:0;}
-  html[dir="rtl"] .hero-diagonal{left:0; right:auto; clip-path:polygon(62% 0,100% 0,100% 100%,38% 100%);}
+  html[dir="rtl"] .hero-photo{left:0; right:auto; transform:translateY(-50%);}
+
+  /* Below 1024px the text fills the full width, so there is no room beside it.
+     The photo drops into flow as a centred 16:9 band under the text. */
+  @media (max-width:1024px){
+    .hero{flex-direction:column; align-items:stretch; justify-content:center; gap:40px;}
+    .hero-grid{order:1; width:100%;}
+    .hero-photo, html[dir="rtl"] .hero-photo{
+      order:2; position:relative; inset:auto; transform:none;
+      width:min(calc(100% - 48px), 480px); align-self:center; flex:none;
+    }
+  }
   html[dir="rtl"] .about-media::after{left:auto; right:-18px;}
   html[dir="rtl"] .stat-cell .num, html[dir="rtl"] .stat-cell .lbl{text-align:center;}
   html[dir="rtl"] .manpower-sub{text-align:right;}
@@ -862,7 +875,7 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-bg" id="img-hero" role="img" aria-label="Construction site with cranes at sunset"></div>
-    <div class="hero-diagonal"></div>
+    <div class="hero-photo" id="img-hero-side" role="img" aria-label="Nexus World Company Limited"></div>
     <div class="wrap hero-grid">
       <div class="hero-content">
         <span class="eyebrow">Precast · Civil Construction · Electromechanical · Manpower</span>
@@ -1291,6 +1304,7 @@
             <h3 class="leader-name-en">Jamaludin</h3>
             <span class="leader-rule" aria-hidden="true"></span>
             <div class="leader-role">Managing Director</div>
+            <p>Provides executive stewardship of the organization’s strategic direction, commercial development and operational governance. The role encompasses translating corporate priorities into measurable business outcomes, strengthening institutional capabilities and advancing a culture of accountability, performance and continuous improvement. Through strategic foresight and structured decision-making, the position drives organizational maturity, reinforces stakeholder confidence and establishes a strong platform for sustainable growth across the company’s evolving business landscape.</p>
           </div>
         </article>
         <article class="leader-card leader-card--exec">
@@ -1308,6 +1322,7 @@
             <h3 class="leader-name-en">Saleh Al-Qahtani</h3>
             <span class="leader-rule" aria-hidden="true"></span>
             <div class="leader-role">Executive Manager</div>
+            <p>Provides senior-level oversight of organizational execution, operational governance and cross-functional performance. The role is instrumental in orchestrating resources, streamlining internal processes and maintaining alignment between corporate priorities and operational delivery. With an emphasis on executional discipline, organizational agility and performance consistency, the position reinforces operational resilience, elevates service standards and enables the company to respond effectively to evolving business requirements and market opportunities.</p>
           </div>
         </article>
         <article class="leader-card leader-card--exec">
@@ -1403,6 +1418,8 @@
      dashed placeholder stays visible.
   ============================================================ */
   const ASSET_SWAP = [
+    { el: document.getElementById('img-hero-side'), path: 'assets/images/nexus-home.jpg',               hero: true,   position: 'center',
+      scrim: 'linear-gradient(100deg, rgba(107,0,38,.34) 0%, rgba(107,0,38,.13) 38%, rgba(200,155,50,.16) 100%)' },
     { el: document.getElementById('img-about'),      path: 'assets/images/nexus-about.jpg',                             fit: 'contain', alt: 'Nexus World Company Limited' },
     { el: document.getElementById('img-project-1'),  path: 'assets/images/project-royal-commission.jpg',                  alt: 'Royal Commission project complex' },
     { el: document.getElementById('img-project-2'),  path: 'assets/images/project-al-majd-square.jpg',                    alt: 'Al-Majd Square compound' },
@@ -1430,10 +1447,11 @@
     const probe = new Image();
     probe.onload = function () {
       if (entry.hero) {
-        entry.el.style.backgroundImage =
-          "linear-gradient(100deg, rgba(17,17,17,.88) 0%, rgba(17,17,17,.72) 38%, rgba(17,17,17,.35) 62%, rgba(17,17,17,.15) 100%), url('" + entry.path + "')";
+        const scrim = entry.scrim ||
+          'linear-gradient(100deg, rgba(17,17,17,.88) 0%, rgba(17,17,17,.72) 38%, rgba(17,17,17,.35) 62%, rgba(17,17,17,.15) 100%)';
+        entry.el.style.backgroundImage = scrim + ", url('" + entry.path + "')";
         entry.el.style.backgroundSize = 'cover';
-        entry.el.style.backgroundPosition = 'center';
+        entry.el.style.backgroundPosition = entry.position || 'center';
       } else {
         const img = document.createElement('img');
         img.src = entry.path;
@@ -1838,7 +1856,9 @@
     add('#leadership .section-head h2', 'قيادتنا');
     addAll('.leader-role', ['المدير العام', 'الرئيس التنفيذي (CEO)', 'المدير التنفيذي', 'المدير المالي (CFO)']);
     addAll('.leader-card p', [
+      'يقدّم إشرافًا تنفيذيًا على التوجه الاستراتيجي للمنظمة وتنميتها التجارية وحوكمتها التشغيلية. يشمل الدور ترجمة أولويات الشركة إلى نتائج أعمال قابلة للقياس، وتعزيز القدرات المؤسسية، وترسيخ ثقافة المساءلة والأداء والتحسين المستمر. ومن خلال الرؤية الاستراتيجية وصنع القرار المنظم، يقود الدور نضج الشركة، ويجدد ثقة أصحاب المصلحة، ويؤسس منصة قوية للنمو المستدام عبر مشهد الأعمال المتطور.',
       'المؤسس والرئيس التنفيذي لشركة نيكسس وورلد المحدودة، يتولى القيادة الاستراتيجية عبر عمليات الإنشاءات وتسليم المشاريع في الشركة. مع تركيز قوي على التميز التشغيلي والنمو المستدام، قاد مشاركة الشركة في الأعمال المدنية والميكانيكية والكهربائية لعملاء ومشاريع كبرى في المملكة العربية السعودية، ومنها سابك وأرامكو السعودية والهيئة الملكية في الجبيل.',
+      'يقدّم إشرافًا بمستوى تنفيذي على تنفيذ العمليات وحوكمتها التشغيلية والأداء بين الوظائف. يتولى الدور مهمة التنسيق بين الموارد وتبسيط العمليات الداخلية والحفاظ على التوافق بين أولويات الشركة والتنفيذ التشغيلي. ومن خلال التركيز على الانضباط التنفيذي والمرونة التنظيمية وثبات الأداء، يعزز الدور المرونة التشغيلية، ويرفع معايير الخدمة، ويتيح للشركة الاستجابة بفعالية لمتطلبات الأعمال المتغيرة وفرص السوق.',
       'المدير المالي لشركة نيكسس وورلد المحدودة، يقود الوظائف المالية والتجارية في الشركة مع تركيز قوي على الحوكمة المالية والتخطيط الاستراتيجي والأداء المستدام. يشرف على إعداد الميزانيات وإدارة التكاليف والضوابط التجارية والتخطيط المالي، بما في ذلك اتخاذ القرارات المنضبطة وصنع القيمة على المدى الطويل في الشركة.'
     ]);
 
