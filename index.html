@@ -247,11 +247,22 @@
      ends 640px later): clearance is positive at every width, tightest at 1380px
      with +25px to the box edge and +21px to the first opaque pixel. The faint
      outer tail of the -16px shadow reaches ~29px, so it grazes that last sliver
-     of the column at 1366-1440px without touching a glyph. */
+     of the column at 1366-1440px without touching a glyph.
+
+     Sharpness: the PNG is 2200x1526, cut from the 1600x900 original photo at
+     full resolution using the approved silhouette as the matte, then scaled up
+     once with Lanczos. Because the CSS width resolves to at most 841px the
+     browser only ever *downscales* it, so no detail is invented at paint time.
+     Its 1.441678 aspect matches the previous 496x344 file to within 0.19px, so
+     the width-based sizing above lays out identically and needed no change.
+     object-fit:contain is set for safety even though height:auto means the
+     intrinsic ratio governs and contain is a no-op. Do not add image-rendering,
+     a scale() transform, or a filter here — each one softens the faces and the
+     flag logo. */
   .hero-figures{
     position:absolute; right:0; bottom:0; z-index:1;
     width:calc(max(305px, min(42%, calc(100% - 800px))) + 35px);
-    height:auto; opacity:0; transition:opacity .45s ease;
+    height:auto; object-fit:contain; opacity:0; transition:opacity .45s ease;
     filter:
       drop-shadow(-16px 24px 26px rgba(0,0,0,.32))
       drop-shadow(0 3px 7px rgba(0,0,0,.24));
